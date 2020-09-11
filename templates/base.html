@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Southeastern PA Cold Way Society</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <!--<h1 class="logo mr-auto"><a href="{% url 'home' %}">Mentor</a></h1>-->
+      <a href="{% url 'home' %}" class="logo mr-auto"><img src="{% static 'img/logo-horiz-with-text.png' %}" alt="" class="img-fluid"></a>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li {% if request.resolver_match.view_name == 'home' %}class="active"{% endif %}><a href="{% url 'home' %}">Home</a></li>
+          <li {% if request.resolver_match.view_name == 'about_us' %}class="active"{% endif %}><a href="{% url 'about_us' %}">About</a></li>
+          <li class="drop-down"><a href="">Our Projects</a>
+            <ul>
+              <li><a href="#">Oral Histories</a></li>
+              <li class="drop-down"><a href="#">Historical Preservation</a>
+                <ul>
+                  <li><a href="#">Naval Air Development Center (NADC; NAWC)</a></li>
+                  <li><a href="#">Dynamic Flight Simulator (Johnsville Centrifuge)</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li {% if '/events' in request.path %}class="active"{% endif %}><a href="{% url 'events' %}">Events</a></li>
+          <li><a href="#">Volunteer</a></li>
+          <li><a href="#">Links</a></li>
+          {% comment %} <li><a href="pricing.html">Veterans</a></li> {% endcomment %}
+
+          <li {% if request.resolver_match.view_name == 'contact_us' %}class="active"{% endif %}><a href="{% url 'contact_us' %}">Contact</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      <a href="#" class="get-started-btn">Donate</a>
+
+    </div>
+  </header><!-- End Header -->
+
+    {% block content %}
+    {% endblock content %}
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Southeastern Pennsylvania Cold War Historical Society</h3>
+            <p>
+              Southeastern Pennsylvania Cold War Historical Society<br>
+              c/o The Fuge<br>
+              780 Falcon Circle, Suite 201<br>
+              Warminster, PA 18974<br>
+              <strong>Email:</strong> <a href="mailto:mail@coldwarhistory.org">mail@coldwarhistory.org</a>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Events</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Get Involved</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Historical Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://wingsoffreedommuseum.org/wp/">Wings of Freedom Aviation Museum</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://navairdevcen.org/">Naval Development Center</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://www.frankfordarsenal.org/">Frankford Arsenal Alumni</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://www.nikemissile.org/">Nike Missle Sites</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://www.history.navy.mil/">Naval History Site</a></li>
+            </ul>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Let's Be Social</h4>
+            <p>Stay up to date with out latest events and news</p>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-youtube"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright 2020 <strong><span>Southeastern PA Cold War Historical Society, a 501(c)(3) organization</span></strong>. All Rights Reserved | Web Design & Development by <a href="http://www.elevatedwebsystems.com">Elevated Web Systems</a>
+        </div>
+        
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'vendor/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

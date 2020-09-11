@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex justify-content-center align-items-center">
+    <div class="container position-relative text-center" data-aos="zoom-in" data-aos-delay="100">
+      <img src="{% static 'img/logo-round-white-border.png' %}" alt="" class="img-fluid">
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About</h2>
+          <p>About Us</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-left" data-aos-delay="100">
+            <img src="{% static 'img/johnsville-centrifuge.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>Who We Are</h3>
+            <p class="font-italic">
+              The Southeastern Pennsylvania Cold War Historical Society was founded in 2010 by a group of motivated women dedicated to preserving the contributions of current and former residents of
+              southeastern Pennsylvania towards protecting the United States during the Cold War
+            </p>
+            <a href="{% url 'about_us' %}" class="learn-more-btn">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts section-bg">
+      <div class="container">
+
+        <div class="row counters">
+
+          <div class="col-lg-4 col-12 text-center">
+            <span data-toggle="counter-up">181,361</span>
+            <p>Cold War Veterans</p>
+          </div>
+
+          <div class="col-lg-4 col-6 text-center">
+            <span data-toggle="counter-up">121</span>
+            <p>Oral Histories Collected</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">42</span>
+            <p>Events</p>
+          </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch mb-3">
+            <div class="content">
+              <h3>What We Do</h3>
+              <p>
+                Our primary mission is to engage in collecting and preserving oral histories from current and former residents of Southeastern Pennsylvania who contributed to activies aimed at protecting the United
+                States during the Cold War.
+              </p>
+              <div class="text-center">
+                <a href="{% url 'about_us' %}" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-12 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-message-detail"></i>
+                    <h4>What is oral history?</h4>
+                    <p>
+                        Oral history is the collection and recording of personal memoirs as historical documentation. It documents forms of discourse normally not documented and it emphasizes the significance of human experience.
+                        <br>
+                        Oral history is the best method to use to get an idea not only of what happened, but what past times meant to people and how it felt to be a part of those times. It  involves eyewitness accounts and 
+                        reminiscences about events and experiences which occurred during the lifetime of the person being interviewed. When we ask people to talk about the past, we are asking them to tell us stories from memory. 
+                    </p>
+                    <div class="text-center">
+                     <a href="{% url 'about_us' %}#oralHistory" class="more-btn">Read More </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+
+          <div class="col-lg-8 d-flex align-items-stretch order-2 order-lg-1" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-12 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-history"></i>
+                    <h4>What was the Cold War?</h4>
+                    <p>
+                      The Cold War (1947-1991) was a period of political, military, and economic tension following World War II which existed primarily 
+                      between the United States and its allies in the Western World and Communist Russia and its satellite states. Rather than all-out war, 
+                      the countries locked in the Cold War engaged in multiple activities aimed at demonstrating overall ideological and governmental superiority over the other. 
+                      These included propaganda, espionage, and intense competition on a number of fronts - a nuclear arms race, fierce competition during international sporting 
+                      events, and technological achievements like the Space Race which culminated in the United States landing astronauts on the moon.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+
+
+          <div class="col-lg-4 d-flex align-items-stretch order-1 order-lg-2">
+            <div class="content">
+              <h3>Historical Links</h3>
+              <p>
+                <ul>
+                  <li><a href="http://wingsoffreedommuseum.org/wp/">Wings of Freedom Aviation Museum</a></li>
+                  <li><a href="http://navairdevcen.org/">Naval Development Center</a></li>
+                  <li><a href="http://www.frankfordarsenal.org/">Frankford Arsenal Alumni</a></li>
+                  <li><a href="http://www.nikemissile.org/">Nike Missle Sites</a></li>
+                  <li><a href="http://www.history.navy.mil/">Naval History Site</a></li>
+                </ul>
+              </p>
+              <div class="text-center">
+                <a href="about.html" class="more-btn">More Links <i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+
+
+    <!-- ======= Popular Courses Section ======= -->
+    <section id="popular-courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Events</h2>
+          <p>Upcoming Events</p>
+        </div>
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+        {% for event in events %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+              <img src="{{event.header_img.url}}" class="img-fluid" alt="...">
+              <div class="course-content">
+
+                <h3><a href="{% url 'event_detail' slug=event.slug %}">{{event.title}}</a></h3>
+                <p>{{event.description|safe|truncatechars:"80"}}</p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <span>{{event.date}}</span>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                    {{event.start_time}} - {{event.end_time}}
+                  </div>
+                </div>
+                <div class="mb-3 mt-3 text-center">
+                  <h4 class="text-center"><a href="{% url 'event_detail' slug=event.slug %}">More Info</a></h4>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+        {% endfor %}
+
+
+        </div>
+
+      </div>
+    </section><!-- End Popular Courses Section -->
+
+    <!-- ======= Trainers Section ======= -->
+    <section id="trainers" class="trainers">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Volunteer</h2>
+          <p>Get Involved</p>
+        </div>
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+            <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
+              <div class="member-content">
+                <h4>Volunteer</h4>
+                <p>
+                  The Southeastern Pennsylvania Cold War Historical Society welcomes volunteers!
+                  <br>
+                  Activities around the identification of individuals involved in Cold War activities and conducting their interviews are priorities at this time. Time commitments for volunteer work vary; contact us for further details.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
+              <div class="member-content">
+                <h4>Donate</h4>
+                <p>
+                  Your financial genorosity helps support our events, projects, and websites like this!
+                </p>
+                <p>
+                  <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                      <div class="form-group">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                      </div>
+                      <div class="form-group">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+
+                      </div>
+                    <div class="form-group input-group">
+                    <div class="input-group-prepend"><span class="input-group-text">$</span>
+                    </div>
+                      <input type="text" class="form-control" name="subject" id="subject" placeholder="Amount" data-rule="minlen:4"  />
+                    </div>
+                    <div class="text-center"><button type="submit" class="get-started-btn">Donate</button></div>
+                  </form>
+                </p>
+                {% comment %} <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div> {% endcomment %}
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
+              <div class="member-content">
+                <h4>Shop</h4>
+                <p>
+                  <div style="text-align:center;line-height:150%">
+                    <a href="https://www.zazzle.com/collections/se_pa_cold_war_historical_society_collection-119049295487816449"><img src="https://rlv.zcache.com/se_pa_cold_war_historical_society_collection_119049295487816449-r_zrued_q8zbr_325.jpg" alt="SE PA Cold War Historical Society Collection" style="border:0;" /></a>
+                    <br/><a href="https://www.zazzle.com/store/se_pa_cold_war_merch">Visit Our Zazzle Store</a>
+                  </div>
+                </p>
+                {% comment %} <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div> {% endcomment %}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Trainers Section -->
+
+  </main><!-- End #main -->
+
+{% endblock content %}
