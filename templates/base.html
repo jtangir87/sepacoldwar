@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Southeastern PA Cold Way Society</title>
+  <title>{% block title_tag %}{% endblock title_tag %}</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -25,9 +25,12 @@
   <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/c47990e7cb.js" crossorigin="anonymous"></script>
 
   <!-- Template Main CSS File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  {% block headscript %}
+  {% endblock headscript %}
 
 </head>
 
@@ -44,13 +47,13 @@
         <ul>
           <li {% if request.resolver_match.view_name == 'home' %}class="active"{% endif %}><a href="{% url 'home' %}">Home</a></li>
           <li {% if request.resolver_match.view_name == 'about_us' %}class="active"{% endif %}><a href="{% url 'about_us' %}">About</a></li>
-          <li class="drop-down"><a href="">Our Projects</a>
+          <li {% if '/projects' in request.path %}class="active drop-down" {%else%}class="drop-down" {% endif %}><a href="#">Our Projects</a>
             <ul>
-              <li><a href="#">Oral Histories</a></li>
+              <li><a href="{% url 'oral_histories' %}">Cold War Oral Histories</a></li>
               <li class="drop-down"><a href="#">Historical Preservation</a>
                 <ul>
-                  <li><a href="#">Naval Air Development Center (NADC; NAWC)</a></li>
-                  <li><a href="#">Dynamic Flight Simulator (Johnsville Centrifuge)</a></li>
+                  <li><a href="{% url 'dfs' %}">Dynamic Flight Simulator (Johnsville Centrifuge)</a></li>
+                  <li><a href="{% url 'nadc' %}">Naval Air Development Center (NADC; NAWC)</a></li>
                 </ul>
               </li>
             </ul>
@@ -72,7 +75,12 @@
 
     {% block content %}
     {% endblock content %}
-
+  <div class="modal fade" id="modal-base">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
@@ -117,10 +125,13 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Let's Be Social</h4>
             <p>Stay up to date with out latest events and news</p>
-            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+            <div class="social-links text-center pt-3 pt-md-0">
               <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
               <a href="#" class="instagram"><i class="bx bxl-twitter"></i></a>
               <a href="#" class="instagram"><i class="bx bxl-youtube"></i></a>
+            </div>
+            <div class="text-center mt-3">
+              <a href="http://www.guidestar.org/organizations/45-3080147/southeastern-pennsylvania-cold-war-historical-society.aspx"><img class="img-fluid" src="{% static 'img/guidestar.svg' %}" style="max-height:150px;"></a>
             </div>
           </div>
 
@@ -153,6 +164,10 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+
+  {% block footscript %}
+  {% endblock footscript %}
 
 </body>
 

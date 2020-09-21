@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 40px;
   height: 40px;
   border-radius: 50px;
-  background: #3333cc;
+  background: #ed1c24;
   color: #fff;
   transition: all 0.4s;
 }
@@ -247,7 +247,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 15px;
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 966px) {
   .nav-menu .drop-down .drop-down ul {
     left: -90%;
   }
@@ -262,7 +262,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Get Startet Button */
 .get-started-btn {
   margin-left: 22px;
-  background: #3333cc;
+  background: #ed1c24;
   color: #fff;
   border-radius: 50px;
   padding: 8px 25px;
@@ -273,7 +273,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .get-started-btn:hover {
-  background: #00b0ff;
+  background: #3333cc;
   color: #fff;
 }
 
@@ -397,7 +397,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background: url("../img/cold-war-world-map.png") center center;
+  background: url("../img/cold-war-missles.jpg") top center;
   background-size: cover;
   position: relative;
 }
@@ -416,7 +416,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 72px;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 752px) {
   #hero .container img {
     max-width: 40%;
     max-height: auto;
@@ -582,7 +582,7 @@ section {
 }
 
 .about .content .learn-more-btn {
-  background: #3333cc;
+  background: #ed1c24;
   color: #fff;
   border-radius: 50px;
   padding: 8px 25px 9px 25px;
@@ -593,7 +593,7 @@ section {
 }
 
 .about .content .learn-more-btn:hover {
-  background: #00b0ff;
+  background: #3333cc;
   color: #fff;
 }
 
@@ -1467,7 +1467,7 @@ section {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #3333cc;
+  color: #ed1c24;
   font-size: 18px;
   line-height: 1;
 }
@@ -1577,7 +1577,74 @@ section {
   text-decoration: none;
 }
 
-
+/* ==================================================
+  Portfolio Styling
+  ================================================== */
+  .portfolio {
+    background-color: #edf6ff;
+    padding-bottom: 0;
+  }
+  
+  .portfolio h2 {
+    color: #199EB8;
+    margin-bottom: 25px;
+  }
+  
+  .portfolio-grid {
+    margin-top: 15px;
+  }
+  
+  .portfolio-grid .row {
+    margin: 0;
+  }
+  
+  .portfolio-grid .row > div {
+    padding: 0;
+  }
+  
+  .portfolio-grid .row > div .card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .portfolio-grid .row > div .card .portfolio-over {
+    position: absolute;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .portfolio-grid .row > div .card .portfolio-over > div {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .portfolio-grid .row > div .card .portfolio-over .card-title {
+    color: #fff;
+    font-size: 30px;
+  }
+  
+  .portfolio-grid .row > div .card .portfolio-over .card-text {
+    color: #fff;
+    opacity: .75;
+    padding: 0 45px;
+  }
+  
+  .portfolio-grid .row > div .card:hover .portfolio-over {
+    opacity: 1;
+    visibility: visible;
+  }
+  
 
 /*--------------------------------------------------------------
 # Added CSS
@@ -1586,3 +1653,57 @@ section {
   color: white;
 }
 
+#dfs-page .section-title {
+  padding-bottom: 20px;
+}
+
+#dfs-page .section-title h2 {
+  font-size: 40px;
+  color: #ed1c24;
+  margin-top: 80px;
+  font-weight: 700;
+}
+
+.long-title h2::after {
+  display: none;
+}
+
+@media(max-width:600px) {
+  #dfs-page .section-title h2 {
+    line-height: normal;
+    font-size: 30px;
+  }
+  #dfs-page .section-title h2::after {
+    display: none;
+  }
+}
+
+#dfs-page .section-title h2::after {
+  background: blue;
+}
+
+.btn-primary {
+  background-color: #3333cc;
+  border-color: #3333cc;
+}
+
+.btn-primary:hover {
+  background-color: #ed1c24;
+  border-color: #ed1c24;
+}
+
+.photo-detail img {
+  max-width: 100%;
+  height: auto;
+}
+
+.photo-detail small {
+  margin-left: 15px;
+}
+
+
+.nadc-photo-gallery img {
+  height: 200px;
+  width: auto;
+  object-fit: cover;
+}

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_tag %}Naval Air Development/Warface Center (NADC/NAWC) {% endblock %}
+
+{% block content %}
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Naval Air Development/Warface Center (NADC/NAWC)</h2>
+        {% comment %} <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p> {% endcomment %}
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="dfs-page" class="about">
+      <div class="container mb-4" data-aos="fade-up">
+        <div class="section-title">
+          <h2 class="page-subtitle">Did You know?</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 pt-4 pt-lg-0 content">
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="container nadc-photo-gallery mb-5" data-aos="fade-up">
+        <div class="section-title">
+          <h2 class="page-subtitle">Photo Archive</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 pt-4 pt-lg-0 content">
+            {{text|safe|truncatechars:"350"}}
+          </div>
+        </div>
+        <div class="row">
+        <div class="card-deck">
+          {% for photo in photos %}
+          <div class="col-lg-3">
+            <div class="card" style="width: 18rem;">
+              <img src="{{photo.photo.url}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text">{{photo.comment_count}} Comments</p>
+                <div class="text-center">
+                  <a class="btn btn-danger btn-sm" href="{% url 'nadc_photo_detail' pk=photo.pk %}">View Photo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+          <div class="col-12 text-center mt-3">
+            <a class="btn btn-primary btn-lg" href="{% url 'nadc_photo_list' %}">View Entire Archive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2 class="page-subtitle">Artifacts</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 pt-4 pt-lg-0 content">
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2 class="page-subtitle">Reunions</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 pt-4 pt-lg-0 content">
+            
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title long-title">
+          <h2 class="page-subtitle">The Naval Air Development Center Group</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 pt-4 pt-lg-0 content">
+            <p>The purpose of this group is to update former employees on events and activities. If you were in any way connected with this facility, civilian, military or contractor, we encourage you to join 
+            our group. Please note that the group moderator cannot add or modify your email address. You have full control over joining, leaving or changing your account information. This is a closed list, only 
+            members can send or view messages. If you want to keep up to date on NADC activities and events this group is the primary means of communication.</p>
+            <div class="mt-3 text-center">
+              <a class="btn btn-primary" href="https://groups.io/g/navairdevcen">Visit NADC Group</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End About Section -->
+
+  </main><!-- End #main -->
+
+
+{% endblock content %}

@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
     "tinymce",
+    "bootstrap_pagination",
+    "bootstrap4",
     "pages",
 ]
 
