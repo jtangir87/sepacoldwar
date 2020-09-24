@@ -8,6 +8,7 @@ from datetime import date
 
 from .models import (
     Event,
+    EventDescriptions,
     OralHistoriesPage,
     DynamicFlightSimulatorPage,
     NADCPhotoPage,
@@ -33,10 +34,15 @@ def hiob_events(request):
     today = date.today()
     upcoming_events = Event.objects.filter(category="HIOB", date__gte=today)
     past_events = Event.objects.filter(category="HIOB", date__lt=today)
+    description = EventDescriptions.objects.values_list("hiob", flat=True).first()
     return render(
         request,
         "pages/event_list_hiob.html",
-        {"upcoming_events": upcoming_events, "past_events": past_events},
+        {
+            "upcoming_events": upcoming_events,
+            "past_events": past_events,
+            "description": description,
+        },
     )
 
 
@@ -44,10 +50,15 @@ def movie_night_events(request):
     today = date.today()
     upcoming_events = Event.objects.filter(category="MOVIE", date__gte=today)
     past_events = Event.objects.filter(category="MOVIE", date__lt=today)
+    description = EventDescriptions.objects.values_list("movie", flat=True).first()
     return render(
         request,
         "pages/event_list_movie_night.html",
-        {"upcoming_events": upcoming_events, "past_events": past_events},
+        {
+            "upcoming_events": upcoming_events,
+            "past_events": past_events,
+            "description": description,
+        },
     )
 
 
@@ -55,10 +66,15 @@ def avt_events(request):
     today = date.today()
     upcoming_events = Event.objects.filter(category="AVT", date__gte=today)
     past_events = Event.objects.filter(category="AVT", date__lt=today)
+    description = EventDescriptions.objects.values_list("avt", flat=True).first()
     return render(
         request,
         "pages/event_list_avt.html",
-        {"upcoming_events": upcoming_events, "past_events": past_events},
+        {
+            "upcoming_events": upcoming_events,
+            "past_events": past_events,
+            "description": description,
+        },
     )
 
 
@@ -66,10 +82,15 @@ def other_events(request):
     today = date.today()
     upcoming_events = Event.objects.filter(category="OTHER", date__gte=today)
     past_events = Event.objects.filter(category="OTHER", date__lt=today)
+    description = EventDescriptions.objects.values_list("other", flat=True).first()
     return render(
         request,
         "pages/event_list_other.html",
-        {"upcoming_events": upcoming_events, "past_events": past_events},
+        {
+            "upcoming_events": upcoming_events,
+            "past_events": past_events,
+            "description": description,
+        },
     )
 
 
