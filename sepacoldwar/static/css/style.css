@@ -1646,6 +1646,10 @@ section {
   }
   
 
+.dyk-slide {
+  height: 100%!important;
+}  
+
 /*--------------------------------------------------------------
 # Added CSS
 --------------------------------------------------------------*/
@@ -1707,3 +1711,18 @@ section {
   width: auto;
   object-fit: cover;
 }
+
+
+.no-dec {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-page img {
+  max-width: 160px;
+}
+
+.link-title {
+  margin-left: 20px;
+}
+

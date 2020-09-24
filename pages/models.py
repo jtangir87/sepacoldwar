@@ -21,9 +21,14 @@ class OralHistoriesPage(models.Model):
 
 class DynamicFlightSimulatorPage(models.Model):
     title = models.CharField(max_length=100)
-    blueprint = HTMLField(verbose_name="Blueprint Digitization Project")
-    centrifuge = HTMLField(verbose_name="Centrifuge Logbook Digitization")
-    tours = HTMLField(verbose_name="Tours of The Fuge")
+    intro = HTMLField(verbose_name="Page Introduction", blank=True, null=True)
+    blueprint = HTMLField(
+        verbose_name="Blueprint Digitization Project", blank=True, null=True
+    )
+    centrifuge = HTMLField(
+        verbose_name="Centrifuge Logbook Digitization", blank=True, null=True
+    )
+    tours = HTMLField(verbose_name="Tours of The Fuge", blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -87,6 +92,14 @@ class NADCPhotoComment(models.Model):
         verbose_name_plural = "NADC Photo Comments"
 
 
+EVENT_CATEGORIES = [
+    ("HIOB", "History In Our Backyard"),
+    ("MOVIE", "Movie Night"),
+    ("AVT", "Annual Veterans Tribute"),
+    ("OTHER", "Other Activites"),
+]
+
+
 def event_uploads(instance, filename):
     upload_path = "event_images"
     return os.path.join(upload_path, filename.lower())
@@ -94,6 +107,7 @@ def event_uploads(instance, filename):
 
 class Event(models.Model):
     title = models.CharField(max_length=200)
+    category = models.CharField(max_length=5, choices=EVENT_CATEGORIES, default="HIOB")
     slug = models.SlugField()
     date = models.DateField(auto_now_add=False, auto_now=False)
     start_time = models.TimeField()
@@ -111,3 +125,25 @@ class Event(models.Model):
 
     # def get_absolute_url(self):
     #     return reverse("blog:blog_detail", kwargs={"slug": self.slug})
+
+
+class EventPhoto(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to=event_uploads)
+
+    def __str__(self):
+        return self.event.title + "-" + str(self.id)
+
+
+class EventDescriptions(models.Model):
+    hiob = HTMLField(verbose_name="History In Our Backyard")
+    movie = HTMLField(verbose_name="Movie Nights")
+    avt = HTMLField(verbose_name="Annual Veterans Tribute")
+    other = HTMLField(verbose_name="Other Activities")
+
+    def __str__(self):
+        return "Event Category Descriptions"
+
+    class Meta:
+        verbose_name = "Event Category Descriptions"
+        verbose_name_plural = "Event Category Descriptions"

@@ -58,9 +58,17 @@
               </li>
             </ul>
           </li>
-          <li {% if '/events' in request.path %}class="active"{% endif %}><a href="{% url 'events' %}">Events</a></li>
+          <li {% if '/events' in request.path %}class="active drop-down"{% else%} class="drop-down" {% endif %}><a href="#">Events</a>
+            <ul>
+              <li><a href="{% url 'hiob_events' %}">History In Our Backyard</a></li>
+              <li><a href="{% url 'movie_events' %}">Movie Night</a></li>
+              <li><a href="{% url 'avt_events' %}">Annual Veterans Tribute</a></li>
+              <li><a href="{% url 'other_events' %}">Other Activities</a></li>
+            </ul>
+          </li>
           <li><a href="#">Volunteer</a></li>
-          <li><a href="#">Links</a></li>
+          <li {% if request.resolver_match.view_name == 'merchandise' %}class="active"{% endif %}><a href="{% url 'merchandise' %}">Merchandise</a></li>
+          <li {% if request.resolver_match.view_name == 'links' %}class="active"{% endif %}><a href="{% url 'links' %}">Links</a></li>
           {% comment %} <li><a href="pricing.html">Veterans</a></li> {% endcomment %}
 
           <li {% if request.resolver_match.view_name == 'contact_us' %}class="active"{% endif %}><a href="{% url 'contact_us' %}">Contact</a></li>
@@ -143,7 +151,7 @@
 
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
-          &copy; Copyright 2020 <strong><span>Southeastern PA Cold War Historical Society, a 501(c)(3) organization</span></strong>. All Rights Reserved | Web Design & Development by <a href="http://www.elevatedwebsystems.com">Elevated Web Systems</a>
+          &copy; Copyright 2020 <strong><span>Southeastern PA Cold War Historical Society, a 501(c)(3) organization</span></strong>. All Rights Reserved | <a href="http://www.elevatedwebsystems.com" class="no-dec">Web Design & Development</a> by <a href="http://www.elevatedwebsystems.com">Elevated Web Systems</a>
         </div>
         
       </div>

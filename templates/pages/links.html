@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_tag %} Cold War Historical Links {% endblock %}
+
+{% block content %}
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Cold War Historical Links</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="link-page" class="link-page">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-12 pt-4 mb-4 pt-lg-0 content">
+            <a href="http://www.wingsoffreedommuseum.org/"><img class="img-fluid" src="{% static 'img/links/wof.jpg' %}"> <span class="link-title">Wings of Freedom Aviation Museum<span></a>
+          </div>
+          <div class="col-lg-12 pt-4 mb-4 pt-lg-0 content">
+            <a href="http://navairdevcen.org/"><img class="img-fluid" src="{% static 'img/links/nadc.jpg' %}"> <span class="link-title">Naval Air Development Center (Warminster, PA)<span></a>
+          </div>
+          <div class="col-lg-12 pt-4 mb-4 pt-lg-0 content">
+            <a href="http://www.frankfordarsenal.org/"><img class="img-fluid" src="{% static 'img/links/fa.jpg' %}"> <span class="link-title">Frankford Arsenal Alumni (Philadelphia, PA)<span></a>
+          </div>
+          <div class="col-lg-12 pt-4 mb-4 pt-lg-0 content">
+            <a href="http://www.nikemissile.org/"><img class="img-fluid" src="{% static 'img/links/ada.gif' %}"> <span class="link-title">Nike Missle Sites<span></a>
+          </div>
+          <div class="col-lg-12 pt-4 mb-4 pt-lg-0 content">
+            <a href="http://www.history.navy.mil/"><img class="img-fluid" src="{% static 'img/links/navyhistory.jpg' %}"> <span class="link-title">Naval History Site<span></a>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
+
+  </main><!-- End #main -->
+
+
+{% endblock content %}

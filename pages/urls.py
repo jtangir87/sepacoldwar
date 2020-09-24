@@ -3,7 +3,10 @@ from django.views.generic import TemplateView
 
 from .views import (
     HomeView,
-    EventList,
+    hiob_events,
+    movie_night_events,
+    avt_events,
+    other_events,
     event_detail,
     oral_histories_page,
     dfs_page,
@@ -25,7 +28,21 @@ urlpatterns = [
         TemplateView.as_view(template_name="pages/contact.html"),
         name="contact_us",
     ),
-    path("events", EventList.as_view(), name="events"),
+    path(
+        "merchandise",
+        TemplateView.as_view(template_name="pages/merchandise.html"),
+        name="merchandise",
+    ),
+    path(
+        "links",
+        TemplateView.as_view(template_name="pages/links.html"),
+        name="links",
+    ),
+    ### EVENTS ###
+    path("events/history-in-our-backyard", hiob_events, name="hiob_events"),
+    path("events/movie-nights", movie_night_events, name="movie_events"),
+    path("events/annual-veterans-tribute", avt_events, name="avt_events"),
+    path("events/other-activities", other_events, name="other_events"),
     path("events/<slug:slug>", event_detail, name="event_detail"),
     ## PROJECTS ##
     path(
@@ -47,5 +64,10 @@ urlpatterns = [
         "projects/naval-air-development-center/photo-archive/<int:pk>/comment",
         nadc_photo_comment,
         name="nadc_photo_comment",
+    ),
+    path(
+        "projects/naval-air-development-center/15th-reunion",
+        TemplateView.as_view(template_name="pages/projects/nadc_15th_reunion.html"),
+        name="nadc_15th_reunion",
     ),
 ]

@@ -29,15 +29,48 @@ class HomeView(TemplateView):
         return context
 
 
-class EventList(TemplateView):
-    template_name = "pages/events.html"
+def hiob_events(request):
+    today = date.today()
+    upcoming_events = Event.objects.filter(category="HIOB", date__gte=today)
+    past_events = Event.objects.filter(category="HIOB", date__lt=today)
+    return render(
+        request,
+        "pages/event_list_hiob.html",
+        {"upcoming_events": upcoming_events, "past_events": past_events},
+    )
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        today = date.today()
-        context["upcoming_events"] = Event.objects.filter(date__gte=today)
-        context["past_events"] = Event.objects.filter(date__lt=today)
-        return context
+
+def movie_night_events(request):
+    today = date.today()
+    upcoming_events = Event.objects.filter(category="MOVIE", date__gte=today)
+    past_events = Event.objects.filter(category="MOVIE", date__lt=today)
+    return render(
+        request,
+        "pages/event_list_movie_night.html",
+        {"upcoming_events": upcoming_events, "past_events": past_events},
+    )
+
+
+def avt_events(request):
+    today = date.today()
+    upcoming_events = Event.objects.filter(category="AVT", date__gte=today)
+    past_events = Event.objects.filter(category="AVT", date__lt=today)
+    return render(
+        request,
+        "pages/event_list_avt.html",
+        {"upcoming_events": upcoming_events, "past_events": past_events},
+    )
+
+
+def other_events(request):
+    today = date.today()
+    upcoming_events = Event.objects.filter(category="OTHER", date__gte=today)
+    past_events = Event.objects.filter(category="OTHER", date__lt=today)
+    return render(
+        request,
+        "pages/event_list_other.html",
+        {"upcoming_events": upcoming_events, "past_events": past_events},
+    )
 
 
 def event_detail(request, slug):
