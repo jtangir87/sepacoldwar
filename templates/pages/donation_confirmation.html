@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_tag %} Donate {% endblock %}
+
+{% block content %}
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Donation Confirmation</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-8 pt-4 pt-lg-0 content mx-auto">
+            <form method="POST" action="{% url 'confirm_donation' %}">
+              {% csrf_token %}
+               <input type="hidden" id="customer_id" name="customer_id" value="{{customer_id}}">
+               <input type="hidden" id="amount" name="amount" value="{{amount}}">
+               <h4>Please confirm your donation in the amount of <strong>${{amount|floatformat:2}}</strong>.<br> Your payment method will be charged at this time. <br></h4>
+               <div class="text-center">
+                <button class="donate-btn">Confirm Donation</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
+
+  </main><!-- End #main -->
+
+
+{% endblock content %}

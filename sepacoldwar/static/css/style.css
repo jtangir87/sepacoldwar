@@ -440,8 +440,10 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero h2 {
   color: #eee;
-  margin: 10px 0 0 0;
-  font-size: 24px;
+  margin: 50px 0 0 0;
+  font-size: 28px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
 }
 
 #hero .btn-get-started {
@@ -500,14 +502,14 @@ section {
 }
 
 .section-title h2 {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: 700;
   padding: 0;
   line-height: 1px;
   margin: 0 0 5px 0;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #aaaaaa;
+  color: #727171;
   font-family: "Poppins", sans-serif;
 }
 
@@ -516,7 +518,7 @@ section {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #9ae1af;
+  background: #3333cc;
   margin: 4px 10px;
 }
 
@@ -574,7 +576,7 @@ section {
 .about .content ul i {
   font-size: 20px;
   padding-right: 4px;
-  color: #3333cc;
+  color: #ed1c24;
 }
 
 .about img {
@@ -1657,6 +1659,10 @@ section {
   color: white;
 }
 
+#dfs-page {
+  padding: 20px 0;
+}
+
 #dfs-page .section-title {
   padding-bottom: 20px;
 }
@@ -1726,3 +1732,48 @@ section {
   margin-left: 20px;
 }
 
+.page-intro {
+  margin-bottom: 50px;
+}
+
+.section-title #merchHighFront {
+  line-height: normal;
+  margin-top: 0px!important;
+}
+
+@media(max-width:576px){
+  .section-title #merchHighFront {
+    margin-top: 30px!important;
+  }
+}
+
+#merch-page .section-title h2::after {
+  display:none;
+}
+
+.about-our-logo img {
+  max-height: 150px;
+}
+
+#about-us .section-title h2 {
+  padding-top: 50px;
+}
+
+
+.donate-btn {
+  margin-top: 20px;
+  background: #3333cc;
+  border: #3333cc;
+  color: #fff;
+  border-radius: 50px;
+  padding: 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.donate-btn:hover {
+  background: #ed1c24;
+  color: #fff;
+}

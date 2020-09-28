@@ -10,3 +10,17 @@ class PhotoCommentForm(forms.ModelForm):
     class Meta:
         model = NADCPhotoComment
         fields = ("photo", "name", "comment")
+
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    phone = forms.CharField(max_length=11, label="Phone Number")
+    message = forms.CharField(widget=forms.TextInput)
+
+
+class DonateForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    phone = forms.CharField(max_length=11, label="Phone Number")
+    amount = forms.IntegerField()

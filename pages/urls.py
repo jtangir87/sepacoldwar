@@ -3,6 +3,8 @@ from django.views.generic import TemplateView
 
 from .views import (
     HomeView,
+    contact_us_form,
+    volunteer_form,
     hiob_events,
     movie_night_events,
     avt_events,
@@ -14,6 +16,8 @@ from .views import (
     nadc_photo_list,
     nadc_photo_detail,
     nadc_photo_comment,
+    donate_page,
+    confirm_donation,
 )
 
 urlpatterns = [
@@ -29,6 +33,21 @@ urlpatterns = [
         name="contact_us",
     ),
     path(
+        "contact-us-submit",
+        contact_us_form,
+        name="contact_us_form",
+    ),
+    path(
+        "volunteer",
+        TemplateView.as_view(template_name="pages/volunteer.html"),
+        name="volunteer",
+    ),
+    path(
+        "volunteer-form",
+        volunteer_form,
+        name="volunteer_form",
+    ),
+    path(
         "merchandise",
         TemplateView.as_view(template_name="pages/merchandise.html"),
         name="merchandise",
@@ -37,6 +56,16 @@ urlpatterns = [
         "links",
         TemplateView.as_view(template_name="pages/links.html"),
         name="links",
+    ),
+    path(
+        "donate",
+        donate_page,
+        name="donate",
+    ),
+    path(
+        "confirm-donation",
+        confirm_donation,
+        name="confirm_donation",
     ),
     ### EVENTS ###
     path("events/history-in-our-backyard", hiob_events, name="hiob_events"),

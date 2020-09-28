@@ -15,21 +15,24 @@
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="about-us" class="about">
       <div class="container" data-aos="fade-up">
 
         <div class="row">
           <div class="col-lg-6 pt-4 pt-lg-0 content">
-            <h3 class="text-center">Who We Are</h3>
+          <div class="section-title">
+            <h2>Who We Are</h2>
+          </div>
             <p class="font-italic">
-                The Southeastern Pennsylvania Cold War Historical Society was founded in 2010 by a group of motivated women dedicated to preserving the contributions of current and former 
-                residents of southeastern Pennsylvania towards protecting the United States during the Cold War.
+                The Southeastern Pennsylvania Cold War Historical Society was founded in 2010 by a group of motivated women dedicated to preserving the contributions that current/former residents of 
+                southeastern Pennsylvania (and nearby regions) made toward protecting the United States during the Cold War. 
             </p>
 
           </div>
-          <a name="oralHistory"></a>
           <div class="col-lg-6 pt-4 pt-lg-0 mb-4 content">
-            <h3 class="text-center">What We Do</h3>
+          <div class="section-title">
+            <h2>What We Do</h2>
+          </div>
             <p class="font-italic">
               The Southeastern Pennsylvania Cold War Historical Society`s primary mission is to engage in collecting and preserving oral histories from current and former residents of southeastern 
               Pennsylvania who contributed to activities aimed at protecting the United States during the Cold War.
@@ -37,8 +40,51 @@
 
           </div>
           
+          <div class="col-lg-12 pt-4 pt-lg-0 mb-4 content">
+          <div class="section-title">
+            <h2>About Our Logo</h2>
+          </div>
+            <div class="row">
+              <div class="col-lg-8 order-2 order-lg-1">
+                <p>
+                  In 2012, our organization held a logo contest with home-schooled children from the Lancaster, PA area. The contest was coordinated with Sam Mylin, the local art teacher in Lancaster.
+                </p>
+                <p class="font-italic">Submitted designs fell into three “themes”:</p>
+                <ul>
+                  <li><i class="icofont-check-circled"></i> Nuclear war/Nuclear threat</li>
+                  <li><i class="icofont-check-circled"></i> Patriotic/ US vs Soviet flags</li>
+                  <li><i class="icofont-check-circled"></i> Ice and snow, playing off the “cold” in Cold War</li>
+                </ul>
+                <p>The winning logo was chosen by our organization based on how well many Cold War elements were integrated into one design. The student logo contest winner was awarded a gift certificate. 
+                  A graphic designer refined the winning logo design that identifies our organization today. 
+                </p>
+              </div>
+              <div class="col-lg-4 order-1 order-lg-2">
+                <img src="{% static 'img/about-our-logo.jpg' %}" class="img-fluid">
+                <small>Examples of the submitted logo designs. Photo: E. O’Rangers</small>
+              </div>
+              
+              <div class="col-lg-12 order-3 order-lg-3">
+                <div class="row about-our-logo text-center">
+                  <div class="col-md-4">
+                    <img src="{% static 'img/logo-round.png' %}" class="img-fluid">
+                  </div>
+                  <div class="col-md-4">
+                    <img src="{% static 'img/logo-horiz.png' %}" class="img-fluid" style="margin-top:20px">
+                  </div>
+                  <div class="col-md-4">
+                    <img src="{% static 'img/logo-bw.png' %}" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>    
+          <a name="oralHistory"></a>
           <div class="col-lg-12 pt-4 pt-lg-0 content">
-            <h3 class="text-center">What Is Oral History?</h3>
+          <div class="section-title">
+            <h2>What Is Oral History?</h2>
+          </div>
             <p>
               Oral history is the collection and recording of personal memoirs as historical documentation. It documents forms of discourse normally not documented and it emphasizes the significance of human experience.
             </p>
@@ -63,6 +109,9 @@
                 Collecting, preserving, and sharing oral histories not only transmits knowledge from one generationto the next, it enhances our understanding of the past by illuminating personal experience.        
             </p>
             <p class="font-italic"><strong>The real record of history is found in the lives of ordinary people who lived it.</strong></p>
+            <div class="text-center">
+              <small>Adapted from the Texas Historical Commission's Fundamentals of Oral History: <a href="https://www.thc.texas.gov/public/upload/publications/OralHistory.pdf">Texas Preservation Guidelines</a>
+            </div>
             <div class="col-lg-12 mt-5 pt-4 pt-lg-0 content text-center">
                 <a href="{% url 'oral_histories' %}" class="btn btn-danger btn-lg">Our Oral Histories Project</a>
             </div>
