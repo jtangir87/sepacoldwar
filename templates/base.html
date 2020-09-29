@@ -110,22 +110,22 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Events</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Get Involved</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about_us' %}">About</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'volunteer' %}">Volunteer</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'merchandise' %}">Merchandise</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact_us' %}">Contact Us</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Historical Links</h4>
+            <h4>Our Projects</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="http://wingsoffreedommuseum.org/wp/">Wings of Freedom Aviation Museum</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="http://navairdevcen.org/">Naval Development Center</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="http://www.frankfordarsenal.org/">Frankford Arsenal Alumni</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="http://www.nikemissile.org/">Nike Missle Sites</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="http://www.history.navy.mil/">Naval History Site</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'oral_histories' %}">Cold War Oral Histories</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'dfs' %}">Dynamic Flight Simulator</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'nadc' %}">Naval Air Development Center</a></li>
+
+
             </ul>
           </div>
 
