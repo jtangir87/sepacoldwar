@@ -23,8 +23,9 @@
               {% csrf_token %}
                <input type="hidden" id="customer_id" name="customer_id" value="{{customer_id}}">
                <input type="hidden" id="amount" name="amount" value="{{amount}}">
-               <h4>Please confirm your donation in the amount of <strong>${{amount|floatformat:2}}</strong>.<br> Your payment method will be charged at this time. <br></h4>
                <div class="text-center">
+                <h4>Please confirm your donation in the amount of <strong>${{amount|floatformat:2}}</strong>.<br> Your payment method will be charged at this time. <br></h4>
+               
                 <button class="donate-btn">Confirm Donation</button>
               </div>
             </form>
