@@ -394,8 +394,23 @@
         </div>
         <div class="row">
           <div class="col-lg-12 pt-4 pt-lg-0 content">
-            
-          </div>
+            <div class="portfolio-grid">
+              <div class="row">
+                <div class="col-lg-3 col-sm-6 col-xs-12">
+                  <div class="card card-block">
+                    <a href="{% static 'img/nadc/artifacts1.jpg' %}" class="venobox" data-gall="portfolioGallery"><img class="dyk-slide" alt="" src="{% static 'img/nadc/artifacts1.jpg' %}">
+                      <div class="portfolio-over dyk-slide">
+                        <div>
+                          <h3 class="card-title">
+                            <i class="bx bx-plus"></i>
+                          </h3>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
 
@@ -418,7 +433,7 @@
               <div class="card">
               <img src="{% static 'img/nadc/reunions/20th-main.jpg'%}" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-text"><a href="#">20th Reunion</a></h5>
+                <h5 class="card-text"><a href="{% url 'nadc_20th_reunion' %}">20th Reunion</a></h5>
                 <p>September 16, 2016<br>
                 The Fuge (Warminster, Pennsylvania)</p>
 

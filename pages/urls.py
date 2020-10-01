@@ -99,4 +99,9 @@ urlpatterns = [
         TemplateView.as_view(template_name="pages/projects/nadc_15th_reunion.html"),
         name="nadc_15th_reunion",
     ),
+    path(
+        "projects/naval-air-development-center/20th-reunion",
+        TemplateView.as_view(template_name="pages/projects/nadc_20th_reunion.html"),
+        name="nadc_20th_reunion",
+    ),
 ]

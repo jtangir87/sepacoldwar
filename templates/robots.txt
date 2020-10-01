@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: /private/
+Disallow: /junk/
+
+Sitemap: http://coldwarhistory.org/sitemap.xml
