@@ -137,7 +137,11 @@
         {% for event in events %}
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="course-item">
+              {% if event.header_img %}
               <img src="{{event.header_img.url}}" class="img-fluid" alt="...">
+              {% else %}
+              <img src="{% static 'img/logo-round.png'%}" class="img-fluid" alt="...">
+              {% endif %}
               <div class="course-content">
 
                 <h3><a href="{% url 'event_detail' slug=event.slug %}">{{event.title}}</a></h3>

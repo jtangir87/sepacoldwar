@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title_tag %}Events | Movie Nights {% endblock %}
 
 {% block content %}
@@ -33,7 +33,11 @@
           <div class="col-md-6 align-items-stretch">
             <div class="card">
               <div class="card-img">
-                <img src="{{event.header_img.url}}" alt="...">
+                {% if event.header_img %}
+                <img src="{{event.header_img.url}}" class="img-fluid" alt="...">
+                {% else %}
+                <img src="{% static 'img/logo-round.png'%}" class="img-fluid" alt="...">
+                {% endif %}
               </div>
               <div class="card-body">
                 <h5 class="card-title"><a href="{% url 'event_detail' slug=event.slug %}">{{event.title}}</a></h5>
@@ -58,7 +62,11 @@
               <div class="col-md-6 align-items-stretch">
                 <div class="card">
                   <div class="card-img">
-                    <img src="{{event.header_img.url}}" alt="...">
+                  {% if event.header_img %}
+                  <img src="{{event.header_img.url}}" class="img-fluid" alt="...">
+                  {% else %}
+                  <img src="{% static 'img/logo-round.png'%}" class="img-fluid" alt="...">
+                  {% endif %}
                   </div>
                   <div class="card-body">
                     <h5 class="card-title"><a href="">{{event.title}}</a></h5>
