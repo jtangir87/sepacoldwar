@@ -9,7 +9,7 @@ class PhotoCommentForm(forms.ModelForm):
 
     class Meta:
         model = NADCPhotoComment
-        fields = ("photo", "name", "comment")
+        fields = ("photo", "name", "email", "comment")
 
 
 class ContactForm(forms.Form):

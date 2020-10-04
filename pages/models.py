@@ -79,6 +79,7 @@ class NADCPhoto(models.Model):
 class NADCPhotoComment(models.Model):
     photo = models.ForeignKey(NADCPhoto, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    email = models.EmailField()
     comment = models.TextField()
     date = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=False)
