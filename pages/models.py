@@ -21,7 +21,6 @@ class OralHistoriesPage(models.Model):
 
 class DynamicFlightSimulatorPage(models.Model):
     title = models.CharField(max_length=100)
-    intro = HTMLField(verbose_name="Page Introduction", blank=True, null=True)
     blueprint = HTMLField(
         verbose_name="Blueprint Digitization Project", blank=True, null=True
     )
@@ -140,7 +139,6 @@ class EventDescriptions(models.Model):
     hiob = HTMLField(verbose_name="History In Our Backyard")
     movie = HTMLField(verbose_name="Movie Nights")
     avt = HTMLField(verbose_name="Annual Veterans Tribute")
-    other = HTMLField(verbose_name="Other Activities")
 
     def __str__(self):
         return "Event Category Descriptions"

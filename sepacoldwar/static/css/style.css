@@ -423,11 +423,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   #hero .container {
     padding-top: 62px;
   }
-}
+} */
 
 #hero h1 {
   margin: 0;
@@ -1147,6 +1147,19 @@ section {
   color: #3333cc;
 }
 
+.avt-img img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.other-img img {
+  height: 200px;
+  width: 250px;
+  object-fit: cover;
+  padding: 20px;
+}
+
 /*--------------------------------------------------------------
 # Pricing
 --------------------------------------------------------------*/
@@ -1776,4 +1789,30 @@ section {
 .donate-btn:hover {
   background: #ed1c24;
   color: #fff;
+}
+
+.float-image-right {
+  float:right; 
+  width:30%;
+  margin-left:10px;
+
+}
+
+.float-image-left {
+  float:left; 
+  width:30%;
+  margin-right:10px;
+
+}
+
+@media(max-width:576px) {
+  .float-image-right {
+    width:45%;
+  
+  }
+  
+  .float-image-left {
+    width:45%;
+  
+  }
 }

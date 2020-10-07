@@ -91,6 +91,7 @@ def confirm_donation(request):
             description="Donation",
         )
 
+        ## EMAIL ELEANOR ##
         template = get_template("pages/donation_received.txt")
         context = {
             "name": customer.name,
@@ -104,6 +105,21 @@ def confirm_donation(request):
             content,
             "Donations <donotreply@elevatedwebsystems.com>",
             ["mail@coldwarhistory.org"],
+            fail_silently=False,
+        )
+
+        ## EMAIL DONOR ##
+        template = get_template("pages/donation_received_thank_you.txt")
+        context = {
+            "name": customer.name,
+            "amount": request.POST.get("amount"),
+        }
+        content = template.render(context)
+        send_mail(
+            "Thank You For Your Donation",
+            content,
+            "Donations <mail@coldwarhistory.org>",
+            [customer.email],
             fail_silently=False,
         )
 
@@ -216,18 +232,9 @@ def avt_events(request):
 
 
 def other_events(request):
-    today = date.today()
-    upcoming_events = Event.objects.filter(category="OTHER", date__gte=today)
-    past_events = Event.objects.filter(category="OTHER", date__lt=today)
-    description = EventDescriptions.objects.values_list("other", flat=True).first()
     return render(
         request,
         "pages/event_list_other.html",
-        {
-            "upcoming_events": upcoming_events,
-            "past_events": past_events,
-            "description": description,
-        },
     )
 
 

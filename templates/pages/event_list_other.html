@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block headscript %}
+<link href="{% static 'vendor/venobox/venobox.min.css' %}" rel="stylesheet">
+{% endblock headscript %}
+
 {% block title_tag %}Events | Other Activities {% endblock %}
 
 {% block content %}
@@ -13,87 +18,115 @@
       </div>
     </div><!-- End Breadcrumbs -->
 
+
     <!-- ======= Events Section ======= -->
-    <section id="events" class="events">
+    <section id="dfs-page" class="events">
       <div class="container" data-aos="fade-up">
-        <div class="mb-4">{{description|safe}}</div>
-        <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="pills-upcoming-tab" data-toggle="pill" href="#pills-upcoming" role="tab" aria-controls="pills-upcoming" aria-selected="true">Upcoming Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="pills-past-tab" data-toggle="pill" href="#pills-past" role="tab" aria-controls="pills-past" aria-selected="false">Past Events</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-          <div class="tab-pane fade show active" id="pills-upcoming" role="tabpanel" aria-labelledby="pills-upcoming-tab">
           
+        <p><strong>&ldquo;Johnsville Through the Years&rdquo;</strong></p>
+        <p>From 2012 to 2013, The Southeastern Pennsylvania Cold War Historical Society briefly maintained a display cabinet entitled, "Johnsville Through the Years", located at the <strong><a href="https://wingsoffreedommuseum.org/wp/">Wings of Freedom Aviation Museum</a>, </strong>Horsham, PA</p>
+        <p>We rotated exhibits in the cabinet highlighting various aspects of the former Naval Air Development Center, Warminster, PA, including employees, departments, and projects.</p>
+        <p>Displays included the following:</p>
+        <ul>
+        <li>The Computer Department at the Naval Air Development Center, Warminster, PA</li>
+        <li>The Development of Nomex, as Spearheaded by Alice Stoll, Biophysicist</li>
+        <li>Airborne Early Warning (AEW) Radar System: Beginnings and Integration as Experienced by Walter Raymond &ldquo;Gus&rdquo; Gustafson</li>
           <div class="row">
-          {% for event in upcoming_events  %}
-          <div class="col-md-6 align-items-stretch">
-            <div class="card">
-              <div class="card-img">
-                {% if event.header_img %}
-                <img src="{{event.header_img.url}}" class="img-fluid" alt="...">
-                {% else %}
-                <img src="{% static 'img/logo-round.png'%}" class="img-fluid" alt="...">
-                {% endif %}
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="{% url 'event_detail' slug=event.slug %}">{{event.title}}</a></h5>
-                <p class="font-italic text-center">{{event.date}} at {{event.start_time}}</p>
-                <p class="card-text">{{event.description|safe|truncatechars:"250"}}</p>
-              </div>
+            <div class="col-md-3 other-img">
+              <a href="{% static 'img/events/computer-department.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/computer-department.jpg' %}"></a>
             </div>
-          </div>
-        {% empty %}
-            <div class="col-md-6 mx-auto align-items-stretch">
-              <div class="card">
-                  <h5 class="card-title"><a href="">No Upcoming Events. Check back soon!</a></h5>
-              </div>
+            <div class="col-md-3 other-img">
+              <a href="{% static 'img/events/nomex.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/nomex.jpg' %}"></a>
             </div>
-        {% endfor %}
-        </div>      
-          
+            <div class="col-md-3 other-img">
+              <a href="{% static 'img/events/gustafson.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/gustafson.jpg' %}"></a>
+            </div>
+
           </div>
-          <div class="tab-pane fade" id="pills-past" role="tabpanel" aria-labelledby="pills-past-tab">
-            <div class="row">
-              {% for event in past_events  %}
-              <div class="col-md-6 align-items-stretch">
-                <div class="card">
-                  <div class="card-img">
-                {% if event.header_img %}
-                <img src="{{event.header_img.url}}" class="img-fluid" alt="...">
-                {% else %}
-                <img src="{% static 'img/logo-round.png'%}" class="img-fluid" alt="...">
-                {% endif %}
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="">{{event.title}}</a></h5>
-                    <p class="font-italic text-center">{{event.date}} at {{event.start_time}}</p>
-                    <p class="card-text">{{event.description|safe|truncatechars:"250"}}</p>
-                  </div>
-                </div>
-              </div>
-              {% empty %}
-              <div class="col-md-6 mx-auto align-items-stretch">
-                <div class="card">
-                    <h5 class="card-title"><a href="">No Past Events. Check back soon!</a></h5>
-                </div>
-              </div>
-            {% endfor %}
-            </div> 
 
-          
+        </ul>
+        <p><strong>83<sup>rd</sup> Annual Scientific Meeting of the Aerospace Medical Association </strong></p>
+        <p>The Southeastern Pennsylvania Cold War Historical Society&rsquo;s President, Eleanor O&rsquo;Rangers, delivered an oral presentation entitled, &ldquo;DOCUMENTING PIONEERING HIGH-G PHYSIOLOGY RESEARCH THROUGH ORAL HISTORIES&rdquo; during the 83<sup>rd</sup> Annual Scientific Meeting of the Aerospace Medical Association in May, 2012 in Atlanta, GA.</p>
+        <p>The presentation&rsquo;s objectives were to:</p>
+        <ul>
+        <li>Create awareness of the efforts of the Southeastern Pennsylvania Cold War Historical Society and its ongoing oral history preservation efforts.</li>
+        <li>Pay tribute to the military and space program advancements accomplished at the Aviation Medical Acceleration Laboratory in Warminster, PA</li>
+        <li>Inspire future generations to pursue science and research careers.</li>
+        </ul>
+        <p>It was a surprise to have several audience members approach Eleanor following the presentation to congratulate her and to reveal that they had worked in Warminster at the Aviation Medical Acceleration Laboratory (aka the Dynamic Flight Simulator/Johnsville Centrifuge)!</p>
+        <div class="other-img">
+            <a href="{% static 'img/events/medical_assoc.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/medical_assoc.jpg' %}" style="width:auto;"></a>
+        </div>    
+        <p><strong>Invited presentations/Displays</strong></p>
+        <p>Our organization has been invited to present to various local organizations over the years. If you are interested in scheduling a presentation or display, please<strong> <a href="http://www.coldwarhistory.org/contact-us">contact us</a></strong></p>
+        <ul>
+        <li>Displays
+        <ul>
+        <li>Mercer Museum (display table)</li>
+        <li>Warminster Day (display table)</li>
+        <li>Warminster Free Library (display cabinet)</li>
+          <div class="row">
+            <div class="col-md-3 other-img">
+              <a href="{% static 'img/events/warminster-free-library-display.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/warminster-free-library-display.jpg' %}"></a>
+            </div>
+            <div class="col-md-3 other-img">
+              <a href="{% static 'img/events/mercer_display1.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/mercer_display1.jpg' %}"></a>
+            </div>
+            <div class="col-md-3 other-img">
+              <a href="{% static 'img/events/mercer_display2.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/mercer_display2.jpg' %}"></a>
+            </div>
+            <div class="col-md-3 other-img">
+              <a href="{% static 'img/events/mercer_display3.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/mercer_display3.jpg' %}"></a>
+            </div>
+
           </div>
-        </div>
+        </ul>
+        </li>
+        </ul>
+        <ul>
+        <li>Presentations
+        <ul>
+        <li>Doylestown Historical Society</li>
+        <li>Hilltown Historical Society</li>
+        <li>NARFE Chapter 0740, Doylestown, PA</li>
+        <li>Neshaminy Questers, Ivyland, PA</li>
+        <li>Rotary Club of Warminster, PA</li>
+        <li>Rotary Club of Warrington, PA</li>
+        <li>Warminster Free Library (webinar)</li>
+          <div class="row">
+            <div class="col-md-3 other-img">
+              <a href="{% static 'img/events/doylestown-historical-society.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/doylestown-historical-society.jpg' %}"></a>
+            </div>
+            <div class="col-md-3 other-img">
+              <a href="{% static 'img/events/hilltown-historical-society.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/hilltown-historical-society.jpg' %}"></a>
+            </div>
+            <div class="col-md-3 other-img">
+              <a href="{% static 'img/events/warrington-rotary.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/warrington-rotary.jpg' %}"></a>
+            </div>
+
+          </div>
 
 
-
-
+        </ul>
+        </li>
+        <li>Other Special Events
+        <ul>
+        <li>&ldquo;Apollo 50&rdquo; at the Fuge</li>
+          <div class="other-img">
+            <a href="{% static 'img/events/apollo50.jpg' %}" class="venobox" data-gall="portfolioGallery"><img alt="" src="{% static 'img/events/apollo50.jpg' %}"></a>
+          </div>        
+        
+        </ul>
+        </li>
+        </ul>
       </div>
     </section><!-- End Events Section -->
 
   </main><!-- End #main -->
 
 {% endblock content %}
+
+
+{% block footscript %}
+  <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
+{% endblock footscript %}
