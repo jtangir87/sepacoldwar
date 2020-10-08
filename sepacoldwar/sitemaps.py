@@ -7,6 +7,7 @@ from pages.models import Event
 class StaticViewSitemap(Sitemap):
     def items(self):
         return [
+            "home",
             "about_us",
             "contact_us",
             "volunteer",
