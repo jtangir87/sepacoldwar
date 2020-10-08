@@ -396,7 +396,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 80vh;
+  /* height: 80vh; */
   background: url("../img/cold-war-missles.jpg") top center;
   background-size: cover;
   position: relative;
@@ -416,12 +416,19 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 72px;
 }
 
-@media (max-width: 751.99999px) {
+/* @media (max-width: 461.99999px) {
   #hero .container img {
     max-width: 80%;
     max-height: auto;
   }
 }
+
+@media (max-width: 461.99999px) {
+  #hero .container img {
+    max-width: 80%;
+    max-height: auto;
+  }
+} */
 
 @media (min-width: 752px) {
   #hero .container img {
