@@ -1689,11 +1689,11 @@ section {
 }
 
 @media(max-width:600px) {
-  #dfs-page .section-title h2 {
+  .section-title h2 {
     line-height: normal;
     font-size: 30px;
   }
-  #dfs-page .section-title h2::after {
+  .section-title h2::after {
     display: none;
   }
 }
