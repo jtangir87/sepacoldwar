@@ -298,6 +298,16 @@ def nadc_photo_comment(request, pk):
         if form.is_valid():
             form.save()
 
+            template = get_template("pages/comment_submitted.txt")
+            context = {}
+            content = template.render(context)
+            send_mail(
+                "New Photo Comment",
+                content,
+                "NADC Photo Comments <notreply@coldwarhistory.org>",
+                ["mail@coldwarhistory.org"],
+                fail_silently=False,
+            )
             data["html_success_message"] = render_to_string(
                 "pages/projects/comment_success.html", request=request
             )
