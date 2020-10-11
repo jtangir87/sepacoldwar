@@ -26,6 +26,10 @@ from .sitemaps import StaticViewSitemap, EventSitemap
 
 sitemaps = {"static": StaticViewSitemap, "events": EventSitemap}
 
+admin.site.site_header = "SE PA Cold War Historical Society Admin"
+admin.site.site_title = "SE PA Cold War Historical Society Admin Portal"
+admin.site.index_title = "Welcome to the SE PA Cold War Historical Society Portal"
+
 urlpatterns = [
     path("cms/", admin.site.urls),
     path("", include("pages.urls")),
