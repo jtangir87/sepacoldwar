@@ -31,7 +31,11 @@
             <form method="POST" action="{% url 'nadc_photo_comment' pk=photo.pk %}" id="commentForm">
             {% csrf_token %}
             {% bootstrap_form form %}
-            <button type="submit" class="btn btn-primary mb-3">Create Comment</button>
+            <button class="btn btn-primary mb-3 g-recaptcha"
+              data-sitekey="6Lf-whUaAAAAADQ1M1WbJuU7YtUEqhE322igexEt" 
+              data-callback='onSubmit' 
+              data-action='submit'      
+              type="submit" >Create Comment</button>
             </form>
           </div>
           <div class="col-12 pt-4 pt-lg-0">
@@ -53,3 +57,13 @@
 
 
 {% endblock content %}
+
+
+{% block footscript %}
+ <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+   function onSubmit(token) {
+     document.getElementById("commentForm").submit();
+   }
+ </script>
+{% endblock footscript %}
