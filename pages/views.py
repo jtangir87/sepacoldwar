@@ -132,23 +132,24 @@ def contact_us_form(request):
         phone = request.POST.get("phone")
         email = request.POST.get("email")
         message = request.POST.get("message")
-
-        template = get_template("pages/contact_us.txt")
-        context = {
-            "name": name,
-            "phone": phone,
-            "email": email,
-            "message": message,
-        }
-        content = template.render(context)
-        send_mail(
-            "New Contact Us Submitted",
-            content,
-            "{}<{}>".format(name, email),
-            ["mail@coldwarhistory.org"],
-            fail_silently=False,
-        )
-        messages.success(request, "Success! Thank you for contacting us!")
+        honeypot = request.POST.get("address")
+        if not honeypot:
+            template = get_template("pages/contact_us.txt")
+            context = {
+                "name": name,
+                "phone": phone,
+                "email": email,
+                "message": message,
+            }
+            content = template.render(context)
+            send_mail(
+                "New Contact Us Submitted",
+                content,
+                "{}<{}>".format(name, email),
+                ["mail@coldwarhistory.org"],
+                fail_silently=False,
+            )
+            messages.success(request, "Success! Thank you for contacting us!")
 
     return redirect(reverse("contact_us"))
 
@@ -159,26 +160,27 @@ def volunteer_form(request):
         phone = request.POST.get("phone")
         email = request.POST.get("email")
         message = request.POST.get("message")
-
-        template = get_template("pages/contact_us.txt")
-        context = {
-            "name": name,
-            "phone": phone,
-            "email": email,
-            "message": message,
-        }
-        content = template.render(context)
-        send_mail(
-            "New Volunteer Form",
-            content,
-            "{}<{}>".format(name, email),
-            ["mail@coldwarhistory.org"],
-            fail_silently=False,
-        )
-        messages.success(
-            request,
-            "Success! Thank you for your interest in becoming a volunteer! We will be in touch with you soon.",
-        )
+        honeypot = request.POST.get("address")
+        if not honeypot:
+            template = get_template("pages/contact_us.txt")
+            context = {
+                "name": name,
+                "phone": phone,
+                "email": email,
+                "message": message,
+            }
+            content = template.render(context)
+            send_mail(
+                "New Volunteer Form",
+                content,
+                "{}<{}>".format(name, email),
+                ["mail@coldwarhistory.org"],
+                fail_silently=False,
+            )
+            messages.success(
+                request,
+                "Success! Thank you for your interest in becoming a volunteer! We will be in touch with you soon.",
+            )
 
     return redirect(reverse("volunteer"))
 
