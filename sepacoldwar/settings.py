@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "bootstrap_pagination",
     "bootstrap4",
     "pages",
+    "catalog",
 ]
 
 MIDDLEWARE = [
@@ -115,7 +116,7 @@ LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "America/New_York"
 
-DATE_INPUT_FORMATS = ["%m-%d-%Y"]
+DATE_INPUT_FORMATS = ["%m/%d/%Y"]
 
 TIME_INPUT_FORMATS = [
     "%I:%M %p",
@@ -124,7 +125,7 @@ TIME_INPUT_FORMATS = [
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
