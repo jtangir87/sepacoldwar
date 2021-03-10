@@ -67,11 +67,13 @@ class NADCPhoto(models.Model):
         verbose_name_plural = "NADC Photos"
 
     def get_comments(self):
-        comments = NADCPhotoComment.objects.filter(photo=self.id, approved=True)
+        comments = NADCPhotoComment.objects.filter(
+            photo=self.id, approved=True)
         return comments
 
     def comment_count(self):
-        count = NADCPhotoComment.objects.filter(photo=self.id, approved=True).count()
+        count = NADCPhotoComment.objects.filter(
+            photo=self.id, approved=True).count()
         return count
 
 
@@ -107,14 +109,16 @@ def event_uploads(instance, filename):
 
 class Event(models.Model):
     title = models.CharField(max_length=200)
-    category = models.CharField(max_length=5, choices=EVENT_CATEGORIES, default="HIOB")
-    slug = models.SlugField()
+    category = models.CharField(
+        max_length=5, choices=EVENT_CATEGORIES, default="HIOB")
+    slug = models.SlugField(unique=True)
     date = models.DateField(auto_now_add=False, auto_now=False)
     start_time = models.TimeField()
     end_time = models.TimeField(blank=True, null=True)
     location = models.CharField(max_length=255, blank=True, null=True)
     description = HTMLField()
-    header_img = models.ImageField(upload_to=event_uploads, blank=True, null=True)
+    header_img = models.ImageField(
+        upload_to=event_uploads, blank=True, null=True)
     event_url = models.URLField(blank=True, null=True)
 
     class Meta:
