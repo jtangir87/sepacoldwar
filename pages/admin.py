@@ -8,10 +8,13 @@ from .models import (
     NADCPhotoPage,
     NADCPhoto,
     NADCPhotoComment,
+    PhotoTag
 )
 from django.conf import settings
 
 # Register your models here.
+
+
 class NADCPhotoCommentAdmin(admin.ModelAdmin):
     list_display = ("__str__", "approved")
     list_filter = ["approved"]
@@ -30,6 +33,7 @@ if settings.DEBUG == False:
     admin.site.register(EventDescriptions, RemoveAddPersmissionAdmin)
     admin.site.register(NADCPhotoPage, RemoveAddPersmissionAdmin)
     admin.site.register(NADCPhoto)
+    admin.site.register(PhotoTag)
     admin.site.register(NADCPhotoComment, NADCPhotoCommentAdmin)
 
 else:
@@ -38,6 +42,7 @@ else:
     admin.site.register(Event)
     # admin.site.register(EventPhoto)
     admin.site.register(EventDescriptions)
-    admin.site.register(NADCPhotoPage)
     admin.site.register(NADCPhoto)
+    admin.site.register(NADCPhotoPage)
+    admin.site.register(PhotoTag)
     admin.site.register(NADCPhotoComment, NADCPhotoCommentAdmin)

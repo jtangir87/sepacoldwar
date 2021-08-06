@@ -17,6 +17,7 @@ from .models import (
     DynamicFlightSimulatorPage,
     NADCPhotoPage,
     NADCPhoto,
+    PhotoTag
 )
 
 from .forms import PhotoCommentForm, ContactForm, DonateForm
@@ -189,7 +190,8 @@ def hiob_events(request):
     today = date.today()
     upcoming_events = Event.objects.filter(category="HIOB", date__gte=today)
     past_events = Event.objects.filter(category="HIOB", date__lt=today)
-    description = EventDescriptions.objects.values_list("hiob", flat=True).first()
+    description = EventDescriptions.objects.values_list(
+        "hiob", flat=True).first()
     return render(
         request,
         "pages/event_list_hiob.html",
@@ -205,7 +207,8 @@ def movie_night_events(request):
     today = date.today()
     upcoming_events = Event.objects.filter(category="MOVIE", date__gte=today)
     past_events = Event.objects.filter(category="MOVIE", date__lt=today)
-    description = EventDescriptions.objects.values_list("movie", flat=True).first()
+    description = EventDescriptions.objects.values_list(
+        "movie", flat=True).first()
     return render(
         request,
         "pages/event_list_movie_night.html",
@@ -221,7 +224,8 @@ def avt_events(request):
     today = date.today()
     upcoming_events = Event.objects.filter(category="AVT", date__gte=today)
     past_events = Event.objects.filter(category="AVT", date__lt=today)
-    description = EventDescriptions.objects.values_list("avt", flat=True).first()
+    description = EventDescriptions.objects.values_list(
+        "avt", flat=True).first()
     return render(
         request,
         "pages/event_list_avt.html",
@@ -263,8 +267,14 @@ def nadc_page(request):
     return render(request, "pages/projects/nadc.html", context)
 
 
-def nadc_photo_list(request):
-    photo_list = NADCPhoto.objects.all()
+def nadc_photo_list(request, tag=None):
+    if tag:
+        photo_list = NADCPhoto.objects.filter(tags=tag)
+        tag_obj = PhotoTag.objects.filter(id=tag).last()
+        tag_name = tag_obj.tag
+    else:
+        photo_list = NADCPhoto.objects.all()
+        tag_name = None
     page = request.GET.get("page", 1)
 
     paginator = Paginator(photo_list, 12)
@@ -279,6 +289,8 @@ def nadc_photo_list(request):
     context = {
         "photos": photos,
         "text": NADCPhotoPage.objects.values_list("description", flat=True).first(),
+        "tag_list": PhotoTag.objects.all(),
+        "tag": tag_name,
     }
 
     return render(request, "pages/projects/nadc_photo_list.html", context)

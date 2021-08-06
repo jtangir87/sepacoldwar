@@ -54,9 +54,17 @@ def nadc_uploads(instance, filename):
     return os.path.join(upload_path, filename.lower())
 
 
+class PhotoTag(models.Model):
+    tag = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.tag
+
+
 class NADCPhoto(models.Model):
     photo = models.ImageField(upload_to=nadc_uploads)
     created_at = models.DateTimeField(auto_now_add=True)
+    tags = models.ManyToManyField(PhotoTag)
 
     def __str__(self):
         return str(self.id)

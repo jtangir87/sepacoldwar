@@ -85,6 +85,11 @@ urlpatterns = [
         name="nadc_photo_list",
     ),
     path(
+        "projects/naval-air-development-center/photo-archive/<tag>/",
+        nadc_photo_list,
+        name="nadc_photo_list",
+    ),
+    path(
         "projects/naval-air-development-center/photo-archive/<int:pk>",
         nadc_photo_detail,
         name="nadc_photo_detail",
@@ -96,12 +101,14 @@ urlpatterns = [
     ),
     path(
         "projects/naval-air-development-center/15th-reunion",
-        TemplateView.as_view(template_name="pages/projects/nadc_15th_reunion.html"),
+        TemplateView.as_view(
+            template_name="pages/projects/nadc_15th_reunion.html"),
         name="nadc_15th_reunion",
     ),
     path(
         "projects/naval-air-development-center/20th-reunion",
-        TemplateView.as_view(template_name="pages/projects/nadc_20th_reunion.html"),
+        TemplateView.as_view(
+            template_name="pages/projects/nadc_20th_reunion.html"),
         name="nadc_20th_reunion",
     ),
 ]
