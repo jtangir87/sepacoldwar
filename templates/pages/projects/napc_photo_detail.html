@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% load bootstrap_pagination %}
+{% block title_tag %}Naval Air Propulsion Center (NAPC) Photo Detail {% endblock %}
+
+{% block content %}
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Naval Air Propulsion Center (NAPC) Photo</h2>
+        {% comment %} <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p> {% endcomment %}
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section class="photo-detail">
+
+      <div class="container mb-5" data-aos="fade-up">
+        <div class="row">
+          <div class="col-12 mb-4">
+            <a class="btn btn-danger" href="{% url 'napc_photo_list' %}">Back to Gallery</a>
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0">
+            <img class="img-fluid mb-3" src="{{photo.photo.url}}">
+            <p><strong>Tags:</strong>
+              {% for tag in photo.tags.all %}
+              <a href="{% url 'napc_photo_list' tag=tag.id %}">{{tag.tag}}</a>, {% endfor %}
+            </p>
+          </div>
+          <div class="col-lg-4 pt-4 pt-lg-0">
+            <h4>Create a Comment</h4>
+            <form method="POST" action="{% url 'napc_photo_comment' pk=photo.pk %}" id="commentForm">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button class="btn btn-primary mb-3"   
+              type="submit" >Create Comment</button>
+            </form>
+          </div>
+          <div class="col-12 pt-4 pt-lg-0">
+            <h2>Comments </h2>
+            {% for comment in photo.get_comments.all  %}
+            <p>{{comment.comment}}<br>
+            <small>{{comment.name}} - {{comment.date}}</small></p>
+            <hr>
+            {% empty %}
+            <p>No comments yet! <br>Be the first to contribute a comment to this image!</p>
+            {% endfor %} 
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End About Section -->
+
+  </main><!-- End #main -->
+
+
+{% endblock content %}
+
+
+{% block footscript %}
+
+{% endblock footscript %}

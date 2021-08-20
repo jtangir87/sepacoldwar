@@ -6,8 +6,14 @@ from .models import (
     OralHistoriesPage,
     DynamicFlightSimulatorPage,
     NADCPhotoPage,
+    WGNASPhotoPage,
+    NAPCPhotoPage,
     NADCPhoto,
     NADCPhotoComment,
+    NAPCPhoto,
+    NAPCPhotoComment,
+    WGNASPhoto,
+    WGNASPhotoComment,
     PhotoTag
 )
 from django.conf import settings
@@ -15,7 +21,7 @@ from django.conf import settings
 # Register your models here.
 
 
-class NADCPhotoCommentAdmin(admin.ModelAdmin):
+class PhotoCommentAdmin(admin.ModelAdmin):
     list_display = ("__str__", "approved")
     list_filter = ["approved"]
 
@@ -32,9 +38,14 @@ if settings.DEBUG == False:
     # admin.site.register(EventPhoto)
     admin.site.register(EventDescriptions, RemoveAddPersmissionAdmin)
     admin.site.register(NADCPhotoPage, RemoveAddPersmissionAdmin)
+    admin.site.register(WGNASPhotoPage, RemoveAddPersmissionAdmin)
     admin.site.register(NADCPhoto)
+    admin.site.register(NAPCPhoto)
+    admin.site.register(WGNASPhoto)
     admin.site.register(PhotoTag)
-    admin.site.register(NADCPhotoComment, NADCPhotoCommentAdmin)
+    admin.site.register(NADCPhotoComment, PhotoCommentAdmin)
+    admin.site.register(NAPCPhotoComment, PhotoCommentAdmin)
+    admin.site.register(WGNASPhotoComment, PhotoCommentAdmin)
 
 else:
     admin.site.register(DynamicFlightSimulatorPage)
@@ -44,5 +55,11 @@ else:
     admin.site.register(EventDescriptions)
     admin.site.register(NADCPhoto)
     admin.site.register(NADCPhotoPage)
+    admin.site.register(NAPCPhoto)
+    admin.site.register(NAPCPhotoPage)
+    admin.site.register(WGNASPhoto)
+    admin.site.register(WGNASPhotoPage)
     admin.site.register(PhotoTag)
-    admin.site.register(NADCPhotoComment, NADCPhotoCommentAdmin)
+    admin.site.register(NADCPhotoComment, PhotoCommentAdmin)
+    admin.site.register(NAPCPhotoComment, PhotoCommentAdmin)
+    admin.site.register(WGNASPhotoComment, PhotoCommentAdmin)

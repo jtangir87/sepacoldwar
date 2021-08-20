@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_tag %}Naval Air Propulsion Center (NAPC) {% endblock %}
+
+{% block headscript %}
+<link href="{% static 'vendor/venobox/venobox.min.css' %}" rel="stylesheet">
+{% endblock headscript %}
+
+{% block content %}
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Naval Air Propulsion Center (NAPC) - Trenton, NJ</h2>
+        {% comment %} <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p> {% endcomment %}
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="dfs-page" class="about">
+      <div class="container mb-4" data-aos="fade-up">
+        <p>Naval Air Warfare Center Trenton was the former site of United States Navy facility in the West Trenton section of Ewing Township, New Jersey, just outside the city of Trenton. Opened during the final year of the Korean War in 1953, 
+        the center encompassed 528 acres on Parkway Avenue in Ewing, directly adjacent to the Trenton–Mercer Airport. </p>
+        <p>It was used as a jet engine test facility for the US Navy until its closure per recommendations of the 1993 Base Closure and Realignment Commission (BRAC). Nearly 700 civilian positions were lost, most of which were relocated 
+        to other facilities in Maryland and Tennessee. The base's Marine operations were transferred to Joint Base McGuire-Dix-Lakehurst.  </p>
+        <p>The links below will take you multiple resources that speak to the history and mission of NAPC in greater detail:</p>
+          
+          <p><a href="{% static 'img/napc/NAPC-History-for-TETWG.pdf' %}">Naval Air Systems Command- The Naval Air Propulsion Center Story, Trenton New Jersey, 1953-1998</a></p>
+
+          <p><a href="{% static 'img/napc/1969_NAPTC_Brochure-1.pdf' %}">Naval Air Propulsion Test Center (1969 brochure)</a></p>
+
+          <p><a href="{% static 'img/napc/1975_NAPTC_Brochure.pdf' %}">Naval Air Propulsion Test Center (1975 brochure)</a></p>
+
+         <p><a href="{% static 'img/napc/Naval-Aviation-News-Apr-1958.pdf' %}">Naval Aviation News, April 1958: Proof of Quality- Tested at Trenton</a></p>
+
+          <p><a href="{% static 'img/napc/Last-Newsletter-Part-1.pdf' %}">NATTS/NAPTC/NAPC/NAWCAD- Trenton News (June 1998 Commemorative Edition)- Part 1</a></p>
+
+          <p><a href="{% static 'img/napc/Last-Newsletter-Part-2.pdf' %}">NATTS/NAPTC/NAPC/NAWCAD- Trenton News (June 1998 Commemorative Edition)- Part 2</a></p>
+
+          <p><a href="{% static 'img/napc/Last-Newsletter-Part-3.pdf' %}">NATTS/NAPTC/NAPC/NAWCAD- Trenton News (June 1998 Commemorative Edition)- Part 3</a></p>
+
+         <p><a href="{% static 'img/napc/Last-Newsletter-Part-4.pdf' %}">NATTS/NAPTC/NAPC/NAWCAD- Trenton News (June 1998 Commemorative Edition)- Part 4</a></p>
+
+
+        <h3>The Ex-NAPC Group</h3>
+        <p>A site for former employees of NAPC (also maybe referred to as NATTS/NAPTC/NAWCAD-TRN).</p>
+        <p>This Group is managed by former employees of the Naval Air Propulsion Center. If you were in any way connected with NAPC, 
+        either as a civilian, military or contractor, consider joining this group. To keep up- to-date on NAPC activities and events, this group is your 
+        primary means of communication. This is a closed list; only members can send or view messages.</p>
+        <p>Please note that the group moderator(s) cannot add or modify your email address. You have full control over joining, leaving or changing your account information.</p>
+
+        <div class="mt-3 text-center">
+              <a class="btn btn-primary" href="https://groups.io/g/exnapc" target="_blank">Visit Ex-NAPC Group</a>
+        </div>
+
+
+        {% if photos.count >= 1 %}
+
+      <div class="container nadc-photo-gallery mb-5" data-aos="fade-up">
+        <div class="section-title">
+          <h2 class="page-subtitle">Photo Archive</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 pt-4 pt-lg-0 content">
+            {{text|safe}}
+          </div>
+        </div>
+        <div class="row">
+        <div class="card-deck">
+          {% for photo in photos %}
+          <div class="col-lg-3">
+            <div class="card" style="width: 18rem;">
+              <img src="{{photo.photo.url}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text">{{photo.comment_count}} Comments</p>
+                <div class="text-center">
+                  <a class="btn btn-danger btn-sm" href="{% url 'napc_photo_detail' pk=photo.pk %}">View Photo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+          <div class="col-12 text-center mt-3">
+            <a class="btn btn-primary btn-lg" href="{% url 'napc_photo_list' %}">View Entire Archive</a>
+          </div>
+
+        </div>
+      </div>
+        {% endif %}
+
+
+
+        <p><strong>References</strong><br>
+          <a href="https://www.bracpmo.navy.mil/brac_bases/northeast/former_warfare_center_trenton.html">Former Naval Air Warfare Center Trenton (navy.mil)</a><br>
+          <a href="https://en.wikipedia.org/wiki/Naval_Air_Warfare_Center_Trenton">Naval Air Warfare Center Trenton - Wikipedia</a><br>
+          <a href="https://www.flickr.com/photos/stanggt3/albums/72157603655313073/">Abandoned Naval Air Warfare Center Aircraft Division - NAWCAD | Flickr</a><br>
+        </p>  
+    </section><!-- End About Section -->
+
+  </main><!-- End #main -->
+
+
+{% endblock content %}
+
+
+{% block footscript %}
+  <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
+{% endblock footscript %}

@@ -17,10 +17,14 @@ from .models import (
     DynamicFlightSimulatorPage,
     NADCPhotoPage,
     NADCPhoto,
-    PhotoTag
+    PhotoTag,
+    WGNASPhotoPage,
+    WGNASPhoto,
+    NAPCPhotoPage,
+    NAPCPhoto,
 )
 
-from .forms import PhotoCommentForm, ContactForm, DonateForm
+from .forms import PhotoCommentForm, ContactForm, DonateForm, WGNASPhotoCommentForm, NAPCPhotoCommentForm
 
 
 import stripe
@@ -319,6 +323,156 @@ def nadc_photo_comment(request, pk):
                 "New Photo Comment",
                 content,
                 "NADC Photo Comments <notreply@coldwarhistory.org>",
+                ["mail@coldwarhistory.org"],
+                fail_silently=False,
+            )
+            data["html_success_message"] = render_to_string(
+                "pages/projects/comment_success.html", request=request
+            )
+            data["form_is_valid"] = True
+
+            return JsonResponse(data)
+
+
+def wgnas_page(request):
+    context = {
+        "text": WGNASPhotoPage.objects.values_list("description", flat=True).first(),
+        "photos": WGNASPhoto.objects.all()[:4],
+    }
+    return render(request, "pages/projects/wgnas.html", context)
+
+
+def wgnas_photo_list(request, tag=None):
+    if tag:
+        photo_list = WGNASPhoto.objects.filter(tags=tag)
+        tag_obj = PhotoTag.objects.filter(id=tag).last()
+        tag_name = tag_obj.tag
+    else:
+        photo_list = WGNASPhoto.objects.all()
+        tag_name = None
+    page = request.GET.get("page", 1)
+
+    paginator = Paginator(photo_list, 12)
+
+    try:
+        photos = paginator.page(page)
+    except PageNotAnInteger:
+        photos = paginator.page(1)
+    except EmptyPage:
+        photos = paginator.page(paginator.num_pages)
+
+    context = {
+        "photos": photos,
+        "text": WGNASPhotoPage.objects.values_list("description", flat=True).first(),
+        "tag_list": PhotoTag.objects.all(),
+        "tag": tag_name,
+    }
+
+    return render(request, "pages/projects/wgnas_photo_list.html", context)
+
+
+def wgnas_photo_detail(request, pk):
+    photo = get_object_or_404(WGNASPhoto, pk=pk)
+    form = WGNASPhotoCommentForm(initial={"photo": photo})
+
+    context = {"photo": photo, "form": form}
+    return render(request, "pages/projects/wgnas_photo_detail.html", context)
+
+
+def wgnas_photo_comment(request, pk):
+    photo = get_object_or_404(WGNASPhoto, pk=pk)
+    data = dict()
+    if request.method == "POST":
+        form = WGNASPhotoCommentForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+
+            template = get_template("pages/comment_submitted.txt")
+            context = {}
+            content = template.render(context)
+            send_mail(
+                "New Photo Comment",
+                content,
+                "WGNAS Photo Comments <notreply@coldwarhistory.org>",
+                ["mail@coldwarhistory.org"],
+                fail_silently=False,
+            )
+            data["html_success_message"] = render_to_string(
+                "pages/projects/comment_success.html", request=request
+            )
+            data["form_is_valid"] = True
+
+            return JsonResponse(data)
+
+
+def wgnas_page(request):
+    context = {
+        "text": WGNASPhotoPage.objects.values_list("description", flat=True).first(),
+        "photos": WGNASPhoto.objects.all()[:4],
+    }
+    return render(request, "pages/projects/wgnas.html", context)
+
+
+def napc_page(request):
+    context = {
+        "text": NAPCPhotoPage.objects.values_list("description", flat=True).first(),
+        "photos": NAPCPhoto.objects.all()[:4],
+    }
+    return render(request, "pages/projects/napc.html", context)
+
+
+def napc_photo_list(request, tag=None):
+    if tag:
+        photo_list = NAPCPhoto.objects.filter(tags=tag)
+        tag_obj = PhotoTag.objects.filter(id=tag).last()
+        tag_name = tag_obj.tag
+    else:
+        photo_list = NAPCPhoto.objects.all()
+        tag_name = None
+    page = request.GET.get("page", 1)
+
+    paginator = Paginator(photo_list, 12)
+
+    try:
+        photos = paginator.page(page)
+    except PageNotAnInteger:
+        photos = paginator.page(1)
+    except EmptyPage:
+        photos = paginator.page(paginator.num_pages)
+
+    context = {
+        "photos": photos,
+        "text": NAPCPhotoPage.objects.values_list("description", flat=True).first(),
+        "tag_list": PhotoTag.objects.all(),
+        "tag": tag_name,
+    }
+
+    return render(request, "pages/projects/napc_photo_list.html", context)
+
+
+def napc_photo_detail(request, pk):
+    photo = get_object_or_404(NAPCPhoto, pk=pk)
+    form = NAPCPhotoCommentForm(initial={"photo": photo})
+
+    context = {"photo": photo, "form": form}
+    return render(request, "pages/projects/napc_photo_detail.html", context)
+
+
+def napc_photo_comment(request, pk):
+    photo = get_object_or_404(NAPCPhoto, pk=pk)
+    data = dict()
+    if request.method == "POST":
+        form = NAPCPhotoCommentForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+
+            template = get_template("pages/comment_submitted.txt")
+            context = {}
+            content = template.render(context)
+            send_mail(
+                "New Photo Comment",
+                content,
+                "NAPC Photo Comments <notreply@coldwarhistory.org>",
                 ["mail@coldwarhistory.org"],
                 fail_silently=False,
             )

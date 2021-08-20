@@ -49,6 +49,30 @@ class NADCPhotoPage(models.Model):
         verbose_name_plural = "NADC Photo Page"
 
 
+class WGNASPhotoPage(models.Model):
+    title = models.CharField(max_length=100)
+    description = HTMLField(verbose_name="Page Text")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "WGNAS Photo Page"
+        verbose_name_plural = "WGNAS Photo Page"
+
+
+class NAPCPhotoPage(models.Model):
+    title = models.CharField(max_length=100)
+    description = HTMLField(verbose_name="Page Text")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "NAPC Photo Page"
+        verbose_name_plural = "NAPC Photo Page"
+
+
 def nadc_uploads(instance, filename):
     upload_path = "nadc_images"
     return os.path.join(upload_path, filename.lower())
@@ -100,6 +124,98 @@ class NADCPhotoComment(models.Model):
         ordering = ["-date"]
         verbose_name = "NADC Photo Comment"
         verbose_name_plural = "NADC Photo Comments"
+
+
+def wgnas_uploads(instance, filename):
+    upload_path = "wgnas_images"
+    return os.path.join(upload_path, filename.lower())
+
+
+class WGNASPhoto(models.Model):
+    photo = models.ImageField(upload_to=wgnas_uploads)
+    created_at = models.DateTimeField(auto_now_add=True)
+    tags = models.ManyToManyField(PhotoTag)
+
+    def __str__(self):
+        return str(self.id)
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "WGNAS Photo"
+        verbose_name_plural = "WGNAS Photos"
+
+    def get_comments(self):
+        comments = WGNASPhotoComment.objects.filter(
+            photo=self.id, approved=True)
+        return comments
+
+    def comment_count(self):
+        count = WGNASPhotoComment.objects.filter(
+            photo=self.id, approved=True).count()
+        return count
+
+
+class WGNASPhotoComment(models.Model):
+    photo = models.ForeignKey(WGNASPhoto, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    comment = models.TextField()
+    date = models.DateField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return "{} - {} - {}".format(self.photo.id, self.name, self.date)
+
+    class Meta:
+        ordering = ["-date"]
+        verbose_name = "WGNAS Photo Comment"
+        verbose_name_plural = "WGNAS Photo Comments"
+
+
+def napc_uploads(instance, filename):
+    upload_path = "napc_images"
+    return os.path.join(upload_path, filename.lower())
+
+
+class NAPCPhoto(models.Model):
+    photo = models.ImageField(upload_to=napc_uploads)
+    created_at = models.DateTimeField(auto_now_add=True)
+    tags = models.ManyToManyField(PhotoTag)
+
+    def __str__(self):
+        return str(self.id)
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "NAPC Photo"
+        verbose_name_plural = "NAPC Photos"
+
+    def get_comments(self):
+        comments = NAPCPhotoComment.objects.filter(
+            photo=self.id, approved=True)
+        return comments
+
+    def comment_count(self):
+        count = NAPCPhotoComment.objects.filter(
+            photo=self.id, approved=True).count()
+        return count
+
+
+class NAPCPhotoComment(models.Model):
+    photo = models.ForeignKey(NADCPhoto, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    comment = models.TextField()
+    date = models.DateField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return "{} - {} - {}".format(self.photo.id, self.name, self.date)
+
+    class Meta:
+        ordering = ["-date"]
+        verbose_name = "NAPC Photo Comment"
+        verbose_name_plural = "NAPC Photo Comments"
 
 
 EVENT_CATEGORIES = [

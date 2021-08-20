@@ -1,5 +1,5 @@
 from django import forms
-from .models import NADCPhotoComment, NADCPhoto
+from .models import NADCPhotoComment, NADCPhoto, WGNASPhotoComment, WGNASPhoto, NAPCPhotoComment, NAPCPhoto
 
 
 class PhotoCommentForm(forms.ModelForm):
@@ -9,6 +9,26 @@ class PhotoCommentForm(forms.ModelForm):
 
     class Meta:
         model = NADCPhotoComment
+        fields = ("photo", "name", "email", "comment")
+
+
+class WGNASPhotoCommentForm(forms.ModelForm):
+    photo = forms.ModelChoiceField(
+        queryset=WGNASPhoto.objects.all(), widget=forms.HiddenInput()
+    )
+
+    class Meta:
+        model = WGNASPhotoComment
+        fields = ("photo", "name", "email", "comment")
+
+
+class NAPCPhotoCommentForm(forms.ModelForm):
+    photo = forms.ModelChoiceField(
+        queryset=NAPCPhoto.objects.all(), widget=forms.HiddenInput()
+    )
+
+    class Meta:
+        model = NAPCPhotoComment
         fields = ("photo", "name", "email", "comment")
 
 

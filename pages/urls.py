@@ -16,6 +16,14 @@ from .views import (
     nadc_photo_list,
     nadc_photo_detail,
     nadc_photo_comment,
+    wgnas_page,
+    wgnas_photo_list,
+    wgnas_photo_detail,
+    wgnas_photo_comment,
+    napc_page,
+    napc_photo_list,
+    napc_photo_detail,
+    napc_photo_comment,
     donate_page,
     confirm_donation,
 )
@@ -78,6 +86,7 @@ urlpatterns = [
         "projects/cold-war-oral-histories", oral_histories_page, name="oral_histories"
     ),
     path("projects/dynamic-flight-simulator", dfs_page, name="dfs"),
+    ## NADC ##
     path("projects/naval-air-development-center", nadc_page, name="nadc"),
     path(
         "projects/naval-air-development-center/photo-archive",
@@ -110,5 +119,50 @@ urlpatterns = [
         TemplateView.as_view(
             template_name="pages/projects/nadc_20th_reunion.html"),
         name="nadc_20th_reunion",
+    ),
+
+    ## WGNAS ##
+    path("projects/willow-grove-naval-air-station", wgnas_page, name="wgnas"),
+    path(
+        "projects/willow-grove-naval-air-station/photo-archive",
+        wgnas_photo_list,
+        name="wgnas_photo_list",
+    ),
+    path(
+        "projects/willow-grove-naval-air-station/photo-archive/<tag>/",
+        wgnas_photo_list,
+        name="wgnas_photo_list",
+    ),
+    path(
+        "projects/willow-grove-naval-air-station/photo-archive/<int:pk>",
+        wgnas_photo_detail,
+        name="wgnas_photo_detail",
+    ),
+    path(
+        "projects/willow-grove-naval-air-station/photo-archive/<int:pk>/comment",
+        wgnas_photo_comment,
+        name="wgnas_photo_comment",
+    ),
+    ## NAPC ##
+    path("projects/naval-air-propulsion-center", napc_page, name="napc"),
+    path(
+        "projects/naval-air-propulsion-center/photo-archive",
+        napc_photo_list,
+        name="napc_photo_list",
+    ),
+    path(
+        "projects/naval-air-propulsion-center/photo-archive/<tag>/",
+        napc_photo_list,
+        name="napc_photo_list",
+    ),
+    path(
+        "projects/naval-air-propulsion-center/photo-archive/<int:pk>",
+        napc_photo_detail,
+        name="napc_photo_detail",
+    ),
+    path(
+        "projects/naval-air-propulsion-center/photo-archive/<int:pk>/comment",
+        napc_photo_comment,
+        name="napc_photo_comment",
     ),
 ]

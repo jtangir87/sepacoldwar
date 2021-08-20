@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_tag %}Naval Air Station Joint Reserve Base (NAS-JRB) Willow Grove {% endblock %}
+
+{% block headscript %}
+<link href="{% static 'vendor/venobox/venobox.min.css' %}" rel="stylesheet">
+{% endblock headscript %}
+
+{% block content %}
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Naval Air Station Joint Reserve Base (NAS-JRB) Willow Grove</h2>
+        {% comment %} <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p> {% endcomment %}
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="dfs-page" class="about">
+      <div class="container mb-4" data-aos="fade-up">
+        <p>Former NAS JRB Willow Grove is located in Horsham Township, Montgomery County in southeastern Pennsylvania, approximately 20 miles north of Philadelphia.</p>
+        <p>In 1926, aviation pioneer, Harold F. Pitcairn (<a href="https://www.nationalaviation.org/our-enshrinees/pitcairn-harold/">Pitcairn, Harold Frederick : National Aviation Hall of Fame</a>), 
+        purchased a large section of farmland on the west side of Doylestown Pike (now Pennsylvania State Route 611) and constructed a hangar and a grass airstrip. The airfield was named after the 
+        nearest town, Willow Grove, Pennsylvania. At the time, Horsham was a rural township with little significance.  That farmland today is the former Naval Air Station Joint Reserve Base (NAS-JRB) 
+        Willow Grove located in Horsham, Pennsylvania. </p>
+        <p>From 1926 to 1942, Pitcairn used the airfield for numerous air shows and to design, construct and test a number of aircraft, including the Autogiro and Mailwing, which was used by the 
+        United States Postal Service to carry mail starting in 1927.</p>
+        <p>In 1942, Pitcairn sold his airfield to the United States Navy, which launched a classified anti-submarine warfare program at the base.  Two hundred fifty naval personnel from the Philadelphia 
+        Naval Shipyard took possession of the field that year. In January 1943, the field was officially commissioned the Naval Air Station (NAS) Willow Grove. </p>
+        <p>Following World War II, NAS Willow Grove was designated a Naval Air Reserve Training Station. Training and operation support activities increased during the Korean War. In 1957, the Department of Defense 
+        purchased additional land, bringing the air station to its present total of 1,100 acres.</p>
+        <p>In 1994, the air station's name was changed to Naval Air Station Joint Reserve Base (NAS JRB) Willow Grove to more accurately reflect the integration and joint operations of the Navy, 
+        Marine Corps, Air Force, Army Reservists, as well as the Pennsylvania Air National Guard. Of interest, as part of its joint recruitment efforts, the base was an annual host to one of 
+        the largest airshows on the East Coast until 2006.</p>
+        <p>On May 28, 2005, the Base Realignment and Closure commission recommended that the base be closed as part of the 2005 BRAC round, that the tenant Air Force Reserve Command airlift wing be 
+        inactivated, and that Navy Reserve and Marine Corps Reserve flying units relocate to McGuire Air Force Base in New Jersey as tenant units.</p>
+        <p>
+          The airfield shut down on March 31, 2011, and on September 15, 2011, the base was closed. The Pennsylvania Air National Guard took custody, and the facility was to be designated 
+          Willow Grove Air National Guard Base, or Horsham Air Guard Station per source. A handful of National Guard and Army Reserve soldiers remained, and the Air Force maintained administrative 
+          offices on the property. Decisions regarding the future use of the land with the runways are coordinated by the Horsham Township Land Redevelopment Authority (HLRA).
+        </p>
+        <p><strong>References</strong><br>
+          <a href="http://www.militarybases.us/navy/nas-willow-grove/">NAS Willow Grove - Military Bases</a><br>
+          <a href="https://www.bracpmo.navy.mil/brac_bases/northeast/reserve_base_willow_grove.html">Former Naval Air Station Joint Reserve Base Willow Grove (navy.mil)</a><br>
+          <a href="https://en.wikipedia.org/wiki/Naval_Air_Station_Joint_Reserve_Base_Willow_Grove">Naval Air Station Joint Reserve Base Willow Grove - Wikipedia</a><br>
+          <a href="https://hlra.org/nas-jrb-willow-grove/history.aspx">History | The Horsham Land Redevelopment Authority (hlra.org)</a><br>
+          <a href="https://www.usmilitariaforum.com/forums/index.php?/topic/216873-willow-grove-nas-snapshots-1968-and-1974/">Willow Grove NAS Snapshots 1968 and 1974 - MILITARY AIRCRAFT & AVIATION - U.S. Militaria Forum (usmilitariaforum.com)</a><br>
+          <a href="http://themilitarystandard.com/navy_base/pa/willow_grove.php">Willow Grove Naval Air Station Joint Reserve Base, Pennsylvania (themilitarystandard.com)</a><br>
+          <a href="https://www.fieldtrip.com/pa/54431776.htm">Willow Grove NAS (fieldtrip.com)</a><br>
+          <a href="https://www.globalsecurity.org/military/facility/willow-grove.htm">NAS JRB Willow Grove (globalsecurity.org)</a>
+
+        </p>  
+
+      <div class="container nadc-photo-gallery mb-5" data-aos="fade-up">
+        <div class="section-title">
+          <h2 class="page-subtitle">Photo Archive</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 pt-4 pt-lg-0 content">
+            {{text|safe}}
+          </div>
+        </div>
+        <div class="row">
+        <div class="card-deck">
+          {% for photo in photos %}
+          <div class="col-lg-3">
+            <div class="card" style="width: 18rem;">
+              <img src="{{photo.photo.url}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text">{{photo.comment_count}} Comments</p>
+                <div class="text-center">
+                  <a class="btn btn-danger btn-sm" href="{% url 'wgnas_photo_detail' pk=photo.pk %}">View Photo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+          <div class="col-12 text-center mt-3">
+            <a class="btn btn-primary btn-lg" href="{% url 'wgnas_photo_list' %}">View Entire Archive</a>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End About Section -->
+
+  </main><!-- End #main -->
+
+
+{% endblock content %}
+
+
+{% block footscript %}
+  <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
+{% endblock footscript %}

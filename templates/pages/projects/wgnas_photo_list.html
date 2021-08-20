@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap_pagination %}
+{% block title_tag %}Naval Air Station Joint Reserve Base (NAS-JRB) Willow Grove Photo Archive {% endblock %}
+
+{% block content %}
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Naval Air Station Joint Reserve Base (NAS-JRB) Willow Grove Photo Archive</h2>
+        {% comment %} <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p> {% endcomment %}
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+
+    <section class="nadc-photo-gallery">
+
+      <div class="container mb-5" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-12 pt-4 pt-lg-0 content">
+          
+              
+            
+
+            {% if tag is not null %}
+              <h3 class="mt-4">Filtering for "{{tag}}"</h3>
+              <a class="btn btn-warning" href="{% url 'wgnas_photo_list' %}">Clear Filter</a>
+            {% else %}
+              {{text|safe}}
+                <div class="dropdown show">
+                  <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter by Tag
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  
+                  {% if tag_list.count >= 1 %}
+                    
+                  
+                    
+                    {% for tag in tag_list  %}
+                    <a class="dropdown-item" href="{% url 'wgnas_photo_list' tag=tag.id %}">{{tag.tag}}</a>
+                    {% endfor %}
+
+                  {% endif %}
+                  </div>
+                </div>
+            {% endif %}
+
+          </div>
+        </div>
+        <div class="row mt-4">
+
+          {% for photo in photos %}
+            <div class="col-lg-3 mb-3">
+              <div class="card">
+                <img src="{{photo.photo.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">{{photo.tags.count}} Tags<br>{{photo.comment_count}} Comments</p>
+                  <div class="text-center">
+                    <a class="btn btn-danger" href="{% url 'wgnas_photo_detail' pk=photo.pk %}">View Photo</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          {% empty %}
+            <p>Sorry, no photos found. Check back soon!</p>
+          {% endfor %}
+        </div>
+
+          <div class="blog-pagination mt-4">
+            {% bootstrap_paginate photos extra_pagination_classes="justify-content-center"%}
+          </div>
+      </div>
+
+    </section><!-- End About Section -->
+
+  </main><!-- End #main -->
+
+
+{% endblock content %}
