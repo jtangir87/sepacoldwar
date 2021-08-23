@@ -88,7 +88,7 @@ class PhotoTag(models.Model):
 class NADCPhoto(models.Model):
     photo = models.ImageField(upload_to=nadc_uploads)
     created_at = models.DateTimeField(auto_now_add=True)
-    tags = models.ManyToManyField(PhotoTag)
+    tags = models.ManyToManyField(PhotoTag, blank=True)
 
     def __str__(self):
         return str(self.id)
@@ -134,7 +134,7 @@ def wgnas_uploads(instance, filename):
 class WGNASPhoto(models.Model):
     photo = models.ImageField(upload_to=wgnas_uploads)
     created_at = models.DateTimeField(auto_now_add=True)
-    tags = models.ManyToManyField(PhotoTag)
+    tags = models.ManyToManyField(PhotoTag, blank=True)
 
     def __str__(self):
         return str(self.id)
@@ -180,7 +180,7 @@ def napc_uploads(instance, filename):
 class NAPCPhoto(models.Model):
     photo = models.ImageField(upload_to=napc_uploads)
     created_at = models.DateTimeField(auto_now_add=True)
-    tags = models.ManyToManyField(PhotoTag)
+    tags = models.ManyToManyField(PhotoTag, blank=True)
 
     def __str__(self):
         return str(self.id)
