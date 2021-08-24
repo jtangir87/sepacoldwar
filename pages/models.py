@@ -84,6 +84,9 @@ class PhotoTag(models.Model):
     def __str__(self):
         return self.tag
 
+    class Meta:
+        ordering = ["tag", ]
+
 
 class NADCPhoto(models.Model):
     photo = models.ImageField(upload_to=nadc_uploads)
