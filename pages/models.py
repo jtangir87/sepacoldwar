@@ -205,7 +205,7 @@ class NAPCPhoto(models.Model):
 
 
 class NAPCPhotoComment(models.Model):
-    photo = models.ForeignKey(NADCPhoto, on_delete=models.CASCADE)
+    photo = models.ForeignKey(NAPCPhoto, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField()
     comment = models.TextField()
