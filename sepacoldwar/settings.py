@@ -151,8 +151,8 @@ TINYMCE_DEFAULT_CONFIG = {
     "toolbar": "numlist bullist image hr forecolor backcolor link",
 }
 
-RECAPTCHA_PUBLIC_KEY = '6Lf-whUaAAAAADQ1M1WbJuU7YtUEqhE322igexEt'
-RECAPTCHA_PRIVATE_KEY = '6Lf-whUaAAAAABtDW_Yez05lF5YKj1WsO_PLsiih'
+RECAPTCHA_PUBLIC_KEY = '6Ldn568gAAAAAG-nZkKYHQ2bOp0S-Sgw1eEsbeRi'
+RECAPTCHA_PRIVATE_KEY = '6Ldn568gAAAAADMzkRbnTpP6aX6XADUzbqCECcCf'
 
 try:
     from .local_settings import *
