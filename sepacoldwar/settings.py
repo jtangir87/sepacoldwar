@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "bootstrap4",
     "pages",
     "catalog",
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -150,6 +151,8 @@ TINYMCE_DEFAULT_CONFIG = {
     "toolbar": "numlist bullist image hr forecolor backcolor link",
 }
 
+RECAPTCHA_PUBLIC_KEY = '6Lf-whUaAAAAADQ1M1WbJuU7YtUEqhE322igexEt'
+RECAPTCHA_PRIVATE_KEY = '6Lf-whUaAAAAABtDW_Yez05lF5YKj1WsO_PLsiih'
 
 try:
     from .local_settings import *

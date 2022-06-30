@@ -1,11 +1,14 @@
 from django import forms
 from .models import NADCPhotoComment, NADCPhoto, WGNASPhotoComment, WGNASPhoto, NAPCPhotoComment, NAPCPhoto
+from captcha.fields import ReCaptchaField
+from captcha.widgets import ReCaptchaV2Checkbox
 
 
 class PhotoCommentForm(forms.ModelForm):
     photo = forms.ModelChoiceField(
         queryset=NADCPhoto.objects.all(), widget=forms.HiddenInput()
     )
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
 
     class Meta:
         model = NADCPhotoComment
@@ -16,6 +19,7 @@ class WGNASPhotoCommentForm(forms.ModelForm):
     photo = forms.ModelChoiceField(
         queryset=WGNASPhoto.objects.all(), widget=forms.HiddenInput()
     )
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
 
     class Meta:
         model = WGNASPhotoComment
@@ -26,6 +30,7 @@ class NAPCPhotoCommentForm(forms.ModelForm):
     photo = forms.ModelChoiceField(
         queryset=NAPCPhoto.objects.all(), widget=forms.HiddenInput()
     )
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
 
     class Meta:
         model = NAPCPhotoComment

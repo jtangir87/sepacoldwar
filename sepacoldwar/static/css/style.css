@@ -1813,3 +1813,7 @@ section {
   
   }
 }
+
+label[for=id_captcha] {
+  display:none;
+}
