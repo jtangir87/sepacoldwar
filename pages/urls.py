@@ -170,4 +170,10 @@ urlpatterns = [
         napc_photo_comment,
         name="napc_photo_comment",
     ),
+    path(
+        "projects/naval-air-propulsion-center/reunion-2022",
+        TemplateView.as_view(
+            template_name="pages/projects/napc_reunion_sept_2022.html"),
+        name="napc_reunion_sept_2022",
+    ),
 ]
