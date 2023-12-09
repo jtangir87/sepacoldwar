@@ -176,4 +176,10 @@ urlpatterns = [
             template_name="pages/projects/napc_reunion_sept_2022.html"),
         name="napc_reunion_sept_2022",
     ),
+    path(
+        "projects/naval-air-propulsion-center/reunion-2023",
+        TemplateView.as_view(
+            template_name="pages/projects/napc_reunion_sept_2023.html"),
+        name="napc_reunion_sept_2023",
+    ),
 ]
