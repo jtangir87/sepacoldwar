@@ -126,6 +126,12 @@ urlpatterns = [
             template_name="pages/projects/nadc_25th_reunion.html"),
         name="nadc_25th_reunion",
     ),
+    path(
+        "projects/naval-air-development-center/alumni-reception",
+        TemplateView.as_view(
+            template_name="pages/projects/nadc_alumni_reception.html"),
+        name="nadc_alumni_reception",
+    ),
     ## WGNAS ##
     path("projects/willow-grove-naval-air-station", wgnas_page, name="wgnas"),
     path(
