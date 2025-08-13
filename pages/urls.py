@@ -66,6 +66,11 @@ urlpatterns = [
         name="links",
     ),
     path(
+        "lavelle-aircraft-corp",
+        TemplateView.as_view(template_name="pages/projects/lavelle-aircraft-corp.html"),
+        name="lavelle_aircraft_corp",
+    ),
+    path(
         "donate",
         donate_page,
         name="donate",
