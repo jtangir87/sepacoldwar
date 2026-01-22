@@ -182,6 +182,12 @@ urlpatterns = [
         name="napc_photo_comment",
     ),
     path(
+        "projects/naval-air-propulsion-center/closing-1998",
+        TemplateView.as_view(
+            template_name="pages/projects/napc_reunion_sept_1998.html"),
+        name="napc_reunion_1998",
+    ),
+    path(
         "projects/naval-air-propulsion-center/reunion-2022",
         TemplateView.as_view(
             template_name="pages/projects/napc_reunion_sept_2022.html"),
