@@ -26,6 +26,7 @@ from .views import (
     napc_photo_comment,
     donate_page,
     confirm_donation,
+    heritage_stories,
 )
 
 urlpatterns = [
@@ -89,6 +90,11 @@ urlpatterns = [
     ## PROJECTS ##
     path(
         "projects/cold-war-oral-histories", oral_histories_page, name="oral_histories"
+    ),
+    path(
+        "projects/heritage-stories",
+        heritage_stories,
+        name="heritage_stories",
     ),
     path("projects/dynamic-flight-simulator", dfs_page, name="dfs"),
     ## NADC ##

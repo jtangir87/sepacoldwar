@@ -22,6 +22,7 @@ from .models import (
     WGNASPhoto,
     NAPCPhotoPage,
     NAPCPhoto,
+    HeritageStory,
 )
 
 from .forms import PhotoCommentForm, ContactForm, DonateForm, WGNASPhotoCommentForm, NAPCPhotoCommentForm
@@ -484,3 +485,14 @@ def napc_photo_comment(request, pk):
             data["form_is_valid"] = True
 
             return JsonResponse(data)
+
+
+def heritage_stories(request):
+    story_list = HeritageStory.objects.all()
+    page = request.GET.get("page", 1)
+    paginator = Paginator(story_list, 12)
+    try:
+        stories = paginator.page(page)
+    except Exception:
+        stories = paginator.page(1)
+    return render(request, "pages/projects/heritage_stories.html", {"stories": stories})

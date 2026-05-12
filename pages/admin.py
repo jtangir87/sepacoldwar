@@ -14,7 +14,8 @@ from .models import (
     NAPCPhotoComment,
     WGNASPhoto,
     WGNASPhotoComment,
-    PhotoTag
+    PhotoTag,
+    HeritageStory,
 )
 from django.conf import settings
 
@@ -24,6 +25,10 @@ from django.conf import settings
 class PhotoCommentAdmin(admin.ModelAdmin):
     list_display = ("__str__", "approved")
     list_filter = ["approved"]
+
+
+class HeritageStoryAdmin(admin.ModelAdmin):
+    list_display = ("title", "created_at")
 
 
 class RemoveAddPersmissionAdmin(admin.ModelAdmin):
@@ -46,6 +51,7 @@ if settings.DEBUG == False:
     admin.site.register(NADCPhotoComment, PhotoCommentAdmin)
     admin.site.register(NAPCPhotoComment, PhotoCommentAdmin)
     admin.site.register(WGNASPhotoComment, PhotoCommentAdmin)
+    admin.site.register(HeritageStory, HeritageStoryAdmin)
 
 else:
     admin.site.register(DynamicFlightSimulatorPage)
@@ -63,3 +69,4 @@ else:
     admin.site.register(NADCPhotoComment, PhotoCommentAdmin)
     admin.site.register(NAPCPhotoComment, PhotoCommentAdmin)
     admin.site.register(WGNASPhotoComment, PhotoCommentAdmin)
+    admin.site.register(HeritageStory, HeritageStoryAdmin)
