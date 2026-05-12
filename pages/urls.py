@@ -92,7 +92,7 @@ urlpatterns = [
         "projects/cold-war-oral-histories", oral_histories_page, name="oral_histories"
     ),
     path(
-        "projects/heritage-stories",
+        "projects/heritage-stories/",
         heritage_stories,
         name="heritage_stories",
     ),
