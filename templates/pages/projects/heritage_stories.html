@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap_pagination %}
+{% block title_tag %}Aerospace Heritage Stories | Southeastern PA Cold War Historical Society{% endblock %}
+
+{% block content %}
+
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Aerospace Heritage Stories</h2>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <section>
+      <div class="container mb-5" data-aos="fade-up">
+        <div class="row pt-4">
+          <div class="col-lg-4 col-md-5 mb-4">
+            <img src="https://elevatedwebsystems.nyc3.cdn.digitaloceanspaces.com/SEPA-coldwar/benjamin-franklin.jpg" class="img-fluid" alt="Benjamin Franklin">
+          </div>
+          <div class="col-lg-8 col-md-7">
+            <p>While serving as Ambassador to France for the fledgling United States during the Revolutionary War and its immediate aftermath, Benjamin Franklin followed news about the first balloon flights with interest and witnessed multiple ascensions. He provided detailed descriptions of these events to colleagues abroad. He wrote that balloons <em>"may pave the Way to some Discoveries in Natural Philosophy of which at present we have no Conception."</em></p>
+            <p>Franklin's words were prophetic; the Greater Philadelphia Region holds a rich and storied heritage in aerospace innovation and technology, contributing significantly to the advancement of aviation and space exploration.</p>
+            <p>The stories below are a small sampling of some of the more notable history that the greater Philadelphia region can speak to with pride regarding its rich aerospace heritage.</p>
+            <p>If you have suggestions for a story to feature on this page, email us at: <a href="mailto:mail@ColdWarHistory.org">mail@ColdWarHistory.org</a>.</p>
+            <p>Enjoy!</p>
+          </div>
+        </div>
+
+        <hr class="my-4">
+
+        <h3 class="mb-4">Heritage Story Archive</h3>
+
+        <div class="row">
+          {% for story in stories %}
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                <img src="{{ story.cover_image.url }}" class="card-img-top" alt="{{ story.title }}">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                  <a href="{{ story.pdf_file.url }}" target="_blank" class="btn btn-danger">{{ story.title }}</a>
+                </div>
+              </div>
+            </div>
+          {% empty %}
+            <div class="col-12">
+              <p>No stories yet. Check back soon!</p>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="blog-pagination mt-4">
+          {% bootstrap_paginate stories extra_pagination_classes="justify-content-center" %}
+        </div>
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+{% endblock content %}

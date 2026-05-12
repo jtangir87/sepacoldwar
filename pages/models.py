@@ -221,6 +221,29 @@ class NAPCPhotoComment(models.Model):
         verbose_name_plural = "NAPC Photo Comments"
 
 
+def heritage_story_covers(instance, filename):
+    return os.path.join("heritage_story_covers", filename.lower())
+
+
+def heritage_story_pdfs(instance, filename):
+    return os.path.join("heritage_story_pdfs", filename.lower())
+
+
+class HeritageStory(models.Model):
+    title = models.CharField(max_length=200)
+    cover_image = models.ImageField(upload_to=heritage_story_covers)
+    pdf_file = models.FileField(upload_to=heritage_story_pdfs)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Heritage Story"
+        verbose_name_plural = "Heritage Stories"
+
+
 EVENT_CATEGORIES = [
     ("HIOB", "History In Our Backyard"),
     ("MOVIE", "Movie Night"),
