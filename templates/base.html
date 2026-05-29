@@ -54,6 +54,7 @@
           <li {% if '/projects' in request.path %}class="active drop-down" {%else%}class="drop-down" {% endif %}><a href="#">Our Projects</a>
             <ul>
               <li><a href="{% url 'oral_histories' %}">Cold War Oral Histories</a></li>
+              <li><a href="{% url 'heritage_stories' %}">Aerospace Heritage</a></li>
               <li class="drop-down"><a href="#">Historical Preservation</a>
                 <ul>
                   <li><a href="{% url 'dfs' %}">Dynamic Flight Simulator (Johnsville Centrifuge)</a></li>
@@ -140,6 +141,7 @@
             <h4>Our Projects</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'oral_histories' %}">Cold War Oral Histories</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'heritage_stories' %}">Aerospace Heritage</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'dfs' %}">Dynamic Flight Simulator (Johnsville Centrifuge)</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'nadc' %}">Naval Air Development Center (NADC; NAWC)</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'napc' %}">Naval Air Propulsion Center (NAPC)</a></li>
