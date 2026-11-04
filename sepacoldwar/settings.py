@@ -84,11 +84,10 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "sepacoldwar",
-        "USER": "postgres",
-        "PASSWORD": "Jst18506",
         "HOST": "localhost",
     }
 }
+# Credentials (USER/PASSWORD) live in local_settings.py, which overrides DATABASES.
 
 
 # Password validation
